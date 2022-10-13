@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "lowdb": "^3.0.0"
+  }
+
+}
