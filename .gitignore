@@ -256,3 +256,6 @@ dist
 \*.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,node
+
+# things I personally added to ignore
+tmp

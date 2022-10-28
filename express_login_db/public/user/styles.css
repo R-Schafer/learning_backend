@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.topnav {
+  width: 100%;
+  color: #383838;
+  background-color: rgb(191 186 186);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topnav span {
+  padding: 15px 23px;
+  font-size: 30px;
+}
+
+h2 {
+  align-self: center;
+}
+
+/* dropdown button in the topnav */
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown button {
+  color: #383838;
+  background-color: rgb(191 186 186);
+  outline: none;
+  border: none;
+  position: relative;
+}
+
+.dropdown button:hover {
+  cursor: pointer;
+  color: white;
+}
+
+/* dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  right: 1%;
+  top: 10%;
+  color: #383838;
+  background-color: white;
+  border-radius: 5px;
+  text-align: right;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-1px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown-menu button:hover {
+  color: #383838;
+}
+
+form {
+  font-family: "Poppins", sans-serif;
+}
+
+form:hover {
+  background-color: rgb(206, 244, 248);
+  color: #383838;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  width: 120px;
+}
+
+.dropdown-menu button {
+  background-color: transparent;
+  color: #383838;
+  font-size: 15px;
+  padding: 8px;
+  width: 100%;
+  text-align: right;
+}
+
+.dropdown-menu button:hover {
+  cursor: pointer;
+}
+
+/* dashboard and sidenav */
+.main {
+  display: flex;
+  text-align: center;
+  color: #383838;
+}
+
+h3 {
+  padding: 30px 0 5px 0;
+  width: 100%;
+}
+
+.sidenav {
+  width: 75px;
+  background-color: #383838;
+  color: #818181;
+  padding-top: 15px;
+}
+
+.sidenav span {
+  padding: 15px 23px;
+  font-size: 30px;
+}
+
+.sidenav span:hover {
+  color: white;
+  cursor: pointer;
+}
+
+/* icons */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.dashboard {
+  width: 100%;
+  display: block;
+  background-color: #f6f6f6;
+}
+
+.box {
+  width: 99%;
+  height: 65px;
+  margin: 5px 5px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#metric {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#new_user {
+  height: 151px;
+}
+
+#circle_graph {
+  height: 100px;
+}
+
+#tracking {
+  height: 90px;
+}
+
+#average {
+  height: 90px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 0 5px 0;
+  width: 100%;
+}
+
+/* media queries */
+@media only screen and (min-width: 450px) {
+  #new_user {
+    height: 220px;
+  }
+  #circle_graph {
+    height: 250px;
+  }
+
+  #tracking {
+    height: 135px;
+  }
+
+  #average {
+    height: 112px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #new_user {
+    height: 300px;
+  }
+
+  #circle_graph {
+    height: 400px;
+  }
+
+  #tracking {
+    height: 196px;
+  }
+
+  #average {
+    height: 159px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #metric {
+    width: 265px;
+  }
+  #new_user {
+    width: 393px;
+    height: 300px;
+  }
+  #circle_graph {
+    width: 400px;
+    height: 300px;
+  }
+
+  #tracking {
+    width: 798px;
+    height: 300px;
+  }
+
+  #average {
+    width: 798px;
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #metric {
+    width: 335px;
+  }
+  #new_user {
+    width: 600px;
+    height: 400px;
+  }
+  #circle_graph {
+    width: 600px;
+    height: 400px;
+  }
+
+  #tracking {
+    width: 1200px;
+    height: 400px;
+  }
+
+  #average {
+    width: 1200px;
+    height: 400px;
+  }
+}
