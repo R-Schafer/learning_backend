@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <script>
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBmSpxOvBSoD8rTY23otfkYerM1a-A5un0",
+        authDomain: "practice-firebase1-94104.firebaseapp.com",
+        projectId: "practice-firebase1-94104",
+        storageBucket: "practice-firebase1-94104.appspot.com",
+        messagingSenderId: "243493358886",
+        appId: "1:243493358886:web:7fc41eee2b256b442bc5e7",
+        measurementId: "G-0E8QKFZ5LH",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="app.js" type="module" defer></script>
+
+    <title>Firebase v7</title>
+  </head>
+  <body>
+    <h1>test</h1>
+
+    <section id="whenSignedOut">
+      <button id="signInBtn">Sign in with Google</button>
+    </section>
+
+    <section id="whenSignedIn" hidden="true">
+      <div id="userDetails"></div>
+      <button id="signOutBtn">Sign Out</button>
+    </section>
+
+    <section>
+      <ul id="peopleList"></ul>
+      <button id="addPerson">Add Person to List</button>
+    </section>
+  </body>
+</html>
