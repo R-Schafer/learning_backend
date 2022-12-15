@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+/* --------------------- Left Panel --------------------- */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: white;
+  text-decoration: none;
+  pointer-events: none;
+  vertical-align: -0.125em;
+}
+
+.dropdown a {
+  pointer-events: auto;
+  /* box-shadow: none; */
+  outline: none;
+}
+
+/* --------------------- Center Panel --------------------- */
+/* - Tweet Box - */
+#user-message {
+  resize: none;
+  height: 180px;
+  box-shadow: none;
+}
+
+/* Tweet Button */
+.btn-color-1 {
+  color: #fff;
+  background-color: #1c9aef;
+  border-color: #1c9aef;
+  font-weight: bold;
+}
+
+.btn-color-1:hover,
+.btn-color-1:active,
+.btn-color-1:focus,
+.btn-color-1.active {
+  background: #1376b8;
+  color: #fff;
+  border-color: #1376b8;
+}
+
+.mobile-logo {
+  color: #1c9aef;
+}
+
+/* --------------------- Right Panel --------------------- */
+/* - Search - */
+#search {
+  box-shadow: none !important;
+  border: none;
+  pointer-events: none;
+}
+
+/* - Happening - */
+ul {
+  list-style-type: none;
+}
+
+.show-more {
+  color: #1c9aef;
+}
