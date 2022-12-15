@@ -1,8 +1,8 @@
 function Login() {
   return (
-    <div className="container h-100 d-flex flex-column justify-content-center">
+    <div className="container-xxxl bg-white h-100 d-flex flex-column justify-content-center">
       <div className="row justify-content-center">
-        <div className="col-10 col-md-8 col-lg-6 border text-center p-3">
+        <div className="col-10 col-md-4 col-lg-4 col-xl-3 border text-center p-3">
           <h1>Login</h1>
           {/* ------------------ email ------------------ */}
           <div className="input-group mb-3">
@@ -12,7 +12,7 @@ function Login() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                className="bi bi-envelope-at"
+                className="email-input bi bi-envelope-at"
                 viewBox="0 0 16 16"
               >
                 <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z" />
@@ -35,7 +35,7 @@ function Login() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                className="bi bi-lock"
+                className="password-input bi bi-lock"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
@@ -50,37 +50,28 @@ function Login() {
             />
           </div>
           {/* ------------------ login button ------------------ */}
-          <div className="d-grid gap-2">
+          <div className="d-flex flex-column justify-content-center align-items-center">
             <button
-              className="btn btn-outline-primary col-6 mx-auto"
+              className="login-btn btn btn-outline-primary w-75"
               type="button"
             >
               LOGIN
             </button>
-          </div>
-          {/* ------------------ login with Google ------------------ */}
-          <span>- OR -</span>
-          <div className="d-grid gap-2 col-6 mx-auto">
-            <button className="btn btn-outline-primary mb-3" type="button">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-google pb-1 pe-1"
-                viewBox="0 0 16 16"
-              >
-                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-              </svg>
+            {/* ------------------ login with Google ------------------ */}
+            <span>- OR -</span>
+            <button
+              className="google-login-btn btn btn-outline-primary w-75 mb-3"
+              type="button"
+            >
               SIGN IN WITH GOOGLE
             </button>
           </div>
           {/* ------------------ register ------------------ */}
-          <p>
-            Don't have an account?{" "}
-            {/* <a href="#" className="pe-auto">
-              Sign up
-            </a> */}
+          <p className="signup d-flex flex-row justify-content-center align-content-center">
+            Don't have an account?
+            <a href="/" className="text-primary ps-2">
+              <span>Sign up</span>
+            </a>
           </p>
         </div>
       </div>

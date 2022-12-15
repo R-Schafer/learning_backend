@@ -1,7 +1,6 @@
 import LeftPanel from "./LeftPanel";
 import CenterPanel from "./CenterPanel";
 import RightPanel from "./RightPanel";
-import "../styles/Home.css";
 
 function Home() {
   return (

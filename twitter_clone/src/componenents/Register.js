@@ -1,8 +1,8 @@
 function Register() {
   return (
-    <div className="container h-100 d-flex flex-column justify-content-center">
+    <div className="container-xxxl bg-white h-100 d-flex flex-column justify-content-center">
       <div className="row justify-content-center">
-        <div className="col-10 col-md-8 col-lg-6 border text-center p-3">
+        <div className="col-10 col-md-4 col-lg-4 col-xl-3 border text-center p-3">
           <h1>REGISTER</h1>
           {/* ------------------ name ------------------ */}
           <div className="input-group mb-3">
@@ -12,7 +12,7 @@ function Register() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                className="bi bi-person-circle"
+                className="name-input bi bi-person-circle"
                 viewBox="0 0 16 16"
               >
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -39,7 +39,7 @@ function Register() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                className="bi bi-person-check"
+                className="username-input bi bi-person-check"
                 viewBox="0 0 16 16"
               >
                 <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
@@ -63,7 +63,7 @@ function Register() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                className="bi bi-envelope-at"
+                className="email-input bi bi-envelope-at"
                 viewBox="0 0 16 16"
               >
                 <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z" />
@@ -86,7 +86,7 @@ function Register() {
                 width="16"
                 height="16"
                 fill="currentColor"
-                className="bi bi-lock"
+                className="password-input bi bi-lock"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
@@ -103,7 +103,7 @@ function Register() {
           {/* ------------------ sign up button ------------------ */}
           <div className="d-grid gap-2">
             <button
-              className="btn btn-outline-primary col-6 mx-auto"
+              className="signup-btn btn btn-outline-primary col-6 mx-auto"
               type="button"
             >
               SIGN UP

@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+/* --------------------- HOME --------------------- */
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -31,7 +33,6 @@ a:active {
 
 .dropdown a {
   pointer-events: auto;
-  /* box-shadow: none; */
   outline: none;
 }
 
@@ -79,4 +80,14 @@ ul {
 
 .show-more {
   color: #1c9aef;
+}
+
+/* --------------------- LOGIN --------------------- */
+
+.signup a {
+  pointer-events: auto;
+  outline: none;
+}
+.signup a:hover {
+  text-decoration: underline;
 }
