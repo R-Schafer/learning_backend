@@ -28,10 +28,10 @@ function TweetDisplay() {
                 <span className="opacity-50 ps-2">@raineys_clone · 1m</span>
               </h6>
               <p className="fs-6 mb-0 pt-2">
-                Welcome to my Twitter clone. Please note that Register, Login,
-                Logout, and Tweet are the only functionalities. Much of this
-                clone is for aestetics only! I plan to expand functionalities in
-                the future.
+                Welcome to my Twitter clone. Please note that Signup, Login,
+                Logout, Delete, and Tweet are the only functionalities. Much of
+                this clone is for aestetics only! I plan to expand
+                functionalities in the future.
               </p>
               <div className="d-flex justify-content-between pt-3 pe-3">
                 {/* -- comment -- */}

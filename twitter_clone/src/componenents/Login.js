@@ -8,8 +8,11 @@ function Login() {
 
   function handleLoginSubmit(e) {
     e.preventDefault();
-    if (email && password !== "poo@gmail.com") {
+    if (email && password) {
+      console.log(email);
+      console.log(password);
       navigate("/home");
+      // remove cookie so the seeion is over and they cant go back
     }
   }
 
@@ -49,7 +52,7 @@ function Login() {
             <div className="d-flex flex-column justify-content-center align-items-center">
               <button
                 className="login-btn btn btn-outline-primary w-75"
-                type="submit"
+                type="button"
                 onClick={handleLoginSubmit}
               >
                 LOGIN

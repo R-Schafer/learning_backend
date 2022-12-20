@@ -31,10 +31,14 @@ a:active {
   vertical-align: -0.125em;
 }
 
-.dropdown a {
+.dropdown:hover {
+  cursor: pointer;
+}
+
+/* .dropdown {
   pointer-events: auto;
   outline: none;
-}
+} */
 
 /* --------------------- Center Panel --------------------- */
 /* - Tweet Box - */

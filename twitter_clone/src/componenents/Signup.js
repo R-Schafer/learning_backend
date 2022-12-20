@@ -3,15 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("PopCornChicken");
+  const [handle, setHandle] = useState("@clone");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   function handleSignupSubmit(e) {
     e.preventDefault();
-    if (email && password !== "poo@gmail.com") {
-      navigate("/home");
+    if (email !== "poo@gmail.com") {
+      navigate("/home ");
+      // remove cookie so the seeion is over and they cant go back
     }
   }
 
@@ -46,6 +48,20 @@ function Signup() {
                 aria-describedby="basic-addon1"
                 required
                 onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+
+            {/* ------------------ handle ------------------ */}
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                name="handle"
+                className="form-control"
+                placeholder="@handle"
+                aria-label="Handle"
+                aria-describedby="basic-addon1"
+                required
+                onChange={(e) => setHandle(e.target.value)}
               />
             </div>
 
