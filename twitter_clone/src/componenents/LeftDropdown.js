@@ -1,10 +1,11 @@
 import Image from "../images/Image";
+import { Link } from "react-router-dom";
 
 function LeftDropdown() {
   return (
     <div className="dropdown ps-3">
-      <a
-        href="/"
+      <Link
+        to=""
         className="d-flex align-items-center text-white text-decoration-none"
         data-bs-toggle="dropdown"
         aria-expanded="false"
@@ -16,17 +17,21 @@ function LeftDropdown() {
             <small>@handle</small>
           </span>
         </h6>
-      </a>
+      </Link>
       <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
         <li>
-          <a className="dropdown-item" href="/">
-            Delete @username
-          </a>
+          <Link to="" className="dropdown-item">
+            <button type="button" className="delete-btn">
+              Delete @username
+            </button>
+          </Link>
         </li>
         <li>
-          <a className="dropdown-item" href="/">
-            Log out @username
-          </a>
+          <Link to="" className="dropdown-item">
+            <button type="button" className="logout-btn">
+              Logout @username
+            </button>
+          </Link>
         </li>
       </ul>
     </div>

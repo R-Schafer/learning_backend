@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function Signup() {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleLoginSubmit(e) {
+  function handleSignupSubmit(e) {
     e.preventDefault();
     if (email && password !== "poo@gmail.com") {
       navigate("/home");
@@ -17,8 +19,36 @@ function Login() {
     <div className="container-xxxl bg-white h-100 d-flex flex-column justify-content-center">
       <div className="row justify-content-center">
         <div className="col-10 col-md-4 col-lg-4 col-xl-3 border text-center p-3">
-          <h1>Login</h1>
+          <h1>REGISTER</h1>
           <form>
+            {/* ------------------ name ------------------ */}
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                placeholder="First and Last Name"
+                aria-label="Name"
+                aria-describedby="basic-addon1"
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+
+            {/* ------------------ username ------------------ */}
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                name="username"
+                className="form-control"
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+                required
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+
             {/* ------------------ email ------------------ */}
             <div className="input-group mb-3">
               <input
@@ -45,30 +75,22 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            {/* ------------------ login button ------------------ */}
-            <div className="d-flex flex-column justify-content-center align-items-center">
+            {/* ------------------ sign up button ------------------ */}
+            <div className="d-grid gap-2">
               <button
-                className="login-btn btn btn-outline-primary w-75"
-                type="submit"
-                onClick={handleLoginSubmit}
-              >
-                LOGIN
-              </button>
-              {/* ------------------ login with Google ------------------ */}
-              <span>- OR -</span>
-              <button
-                className="google-login-btn btn btn-outline-primary w-75 mb-3"
+                className="signup-btn btn btn-outline-primary w-75 mb-3 mx-auto"
                 type="button"
+                onClick={handleSignupSubmit}
               >
-                SIGN IN WITH GOOGLE
+                SIGN UP
               </button>
             </div>
           </form>
-          {/* ------------------ signup ------------------ */}
+          {/* ------------------ login ------------------ */}
           <p className="signup d-flex flex-row justify-content-center align-content-center">
-            Don't have an account?
-            <Link to="/signup" className="text-primary ps-2">
-              <span>Sign up</span>
+            Already have an account?
+            <Link to="/" className="text-primary ps-2">
+              <span>Log In</span>
             </Link>
           </p>
         </div>
@@ -77,4 +99,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

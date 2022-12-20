@@ -1,11 +1,12 @@
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
+import { Link } from "react-router-dom";
 
 function TweetDisplay() {
   return (
     <div>
-      <a
-        href="/"
+      <Link
+        to=""
         className="bg-black d-flex flex-column py-3 px-3 border-bottom border-light border-opacity-25"
         aria-current="true"
       >
@@ -45,7 +46,7 @@ function TweetDisplay() {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

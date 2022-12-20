@@ -23,7 +23,10 @@ function TweetBox() {
               maxlength="280"
               placeholder="What's happening?"
             ></textarea>
-            <button type="button" className="btn btn-color-1 rounded-pill mt-2">
+            <button
+              type="button"
+              className="tweet-btn btn btn-color-1 rounded-pill mt-2"
+            >
               Tweet
             </button>
           </div>

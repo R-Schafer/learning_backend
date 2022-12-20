@@ -1,5 +1,6 @@
 import Icons from "../SVGs/Icons";
 import MobileDropdown from "./MobileDropdown";
+import { Link } from "react-router-dom";
 
 function MobileNavbar() {
   return (
@@ -7,29 +8,29 @@ function MobileNavbar() {
       <ul className="nav pt-2 flex-row justify-content-around">
         {/* -- home -- */}
         <li>
-          <a href="/" className="nav-link" aria-current="page">
+          <Link to="" className="nav-link" aria-current="page">
             <Icons type="home" class="bi pe-none me-2" />
-          </a>
+          </Link>
         </li>
         {/* -- search -- */}
         <li>
-          <a href="/" className="nav-link" aria-current="page">
+          <Link to="" className="nav-link" aria-current="page">
             <Icons type="search" class="bi pe-none me-2" />
-          </a>
+          </Link>
         </li>
         {/* -- logout -- */}
         <MobileDropdown />
         {/* -- notifications -- */}
         <li>
-          <a href="/" className="nav-link" aria-current="page">
+          <Link to="" className="nav-link" aria-current="page">
             <Icons type="notifications" class="bi pe-none me-2" />
-          </a>
+          </Link>
         </li>
         {/* -- messages -- */}
         <li>
-          <a href="/" className="nav-link" aria-current="page">
+          <Link to="" className="nav-link" aria-current="page">
             <Icons type="messages" class="bi pe-none me-2" />
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

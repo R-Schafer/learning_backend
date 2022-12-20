@@ -1,6 +1,5 @@
 import LeftNavbar from "./LeftNavbar";
 import LeftDropdown from "./LeftDropdown";
-import Icons from "../SVGs/Icons";
 
 function LeftPanel() {
   return (

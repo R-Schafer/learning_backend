@@ -1,26 +1,27 @@
 import Image from "../images/Image";
+import { Link } from "react-router-dom";
 
 function MobileDropdown() {
   return (
     <div className="dropdown pb-3">
-      <a
-        href="/"
+      <Link
+        to=""
         className="d-flex align-items-center text-white text-decoration-none "
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         <Image />
-      </a>
+      </Link>
       <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
         <li>
-          <a className="dropdown-item" href="/">
+          <Link to="" className="dropdown-item">
             Delete @username
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="dropdown-item" href="/">
+          <Link to="" className="dropdown-item">
             Log out @username
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
