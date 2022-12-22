@@ -1,8 +1,8 @@
 // import { faker } from "https://cdn.skypack.dev/@faker-js/faker";
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 //   configuration
 const firebaseConfig = {
@@ -14,11 +14,14 @@ const firebaseConfig = {
   appId: "1:529264716482:web:2a3094ae5aac630b67e95b",
 };
 
-// Initialize Firebase
+// initialize firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and get a reference to the service
+// initialize firebase authentication
 export const auth = getAuth(app);
 
-// Initialize Firestore
+// initialize firestore
 export const db = getFirestore(app);
+
+// collection ref
+export const colRef = collection(db, "users");

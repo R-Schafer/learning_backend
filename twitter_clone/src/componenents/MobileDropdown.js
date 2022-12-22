@@ -1,17 +1,41 @@
 import Image from "../images/Image";
 import { useNavigate } from "react-router-dom";
+import { auth } from "./firebase";
+import { signOut, deleteUser } from "firebase/auth";
 
 function MobileDropdown() {
   const navigate = useNavigate();
+  const user = auth.currentUser;
+
+  if (user !== null) {
+    const username = user.username;
+    const handle = user.handle;
+    console.log(username);
+    console.log(handle);
+  }
 
   function handleDelete() {
-    console.log("deleted");
-    navigate("/");
+    deleteUser(user)
+      .then(() => {
+        alert("user deleted");
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = "couldn't delete user";
+        alert(errorMessage);
+      });
   }
 
   function handleLogout() {
-    console.log("logged out");
-    navigate("/");
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+        alert("sign out successful");
+      })
+      .catch((error) => {
+        const errorMessage = "could not sign user out";
+        alert(errorMessage);
+      });
   }
 
   return (

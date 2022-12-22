@@ -1,19 +1,50 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addDoc } from "firebase/firestore";
+import { auth, colRef } from "./firebase";
 
 function Signup() {
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("PopCornChicken");
-  const [handle, setHandle] = useState("@clone");
+  const [username, setUsername] = useState("");
+  const [handle, setHandle] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleSignupSubmit(e) {
+  function handleSignup(e) {
     e.preventDefault();
-    if (email !== "poo@gmail.com") {
-      navigate("/home ");
-      // remove cookie so the seeion is over and they cant go back
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/home");
+        alert("create account successfully");
+        addNewUserToFirestore();
+      })
+      .catch((error) => {
+        // maybe add something about the user already having an account and can't register again
+        const errorMessage = "couldn't add user to firestore";
+        alert(errorMessage);
+      });
+
+    function addNewUserToFirestore() {
+      addDoc(colRef, {
+        name: name,
+        username: username,
+        handle: handle,
+        email: email,
+        password: password,
+      }).then(console.log("added"));
+
+      // tried another way to get the id but there was an error
+      // async function addNewUserToFirestore() {
+      //   const docRef = await addDoc(colRef, {
+      //     name: name,
+      //     username: username,
+      //     handle: handle,
+      //     email: email,
+      //     password: password,
+      //   });
+      //   console.log("Document ID: ", docRef.id);
     }
   }
 
@@ -96,7 +127,7 @@ function Signup() {
               <button
                 className="signup-btn btn btn-outline-primary w-75 mb-3 mx-auto"
                 type="button"
-                onClick={handleSignupSubmit}
+                onClick={handleSignup}
               >
                 SIGN UP
               </button>

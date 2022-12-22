@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "./firebase";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleLoginSubmit(e) {
+  function handleLogin(e) {
     e.preventDefault();
-    if (email && password) {
-      console.log(email);
-      console.log(password);
-      navigate("/home");
-      // remove cookie so the seeion is over and they cant go back
-    }
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        navigate("/home");
+        alert("login successful");
+      })
+      .catch((error) => {
+        const errorMessage = "Account not found, please try again";
+        alert(errorMessage);
+      });
   }
 
   return (
@@ -53,18 +60,18 @@ function Login() {
               <button
                 className="login-btn btn btn-outline-primary w-75"
                 type="button"
-                onClick={handleLoginSubmit}
+                onClick={handleLogin}
               >
                 LOGIN
               </button>
               {/* ------------------ login with Google ------------------ */}
-              <span>- OR -</span>
+              {/* <span>- OR -</span>
               <button
                 className="google-login-btn btn btn-outline-primary w-75 mb-3"
                 type="button"
               >
                 SIGN IN WITH GOOGLE
-              </button>
+              </button> */}
             </div>
           </form>
           {/* ------------------ signup ------------------ */}
