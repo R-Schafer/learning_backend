@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "./firebase";
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
 
 function TweetBox({ currentUser, currentUserInfo }) {
-  const [tweet, setTweet] = useState("");
+  const [tweet, setTweet] = useState();
 
   async function addTweet() {
-    console.log("hi");
-    // const docRef = doc(db, "users", "charlie@gmail.com");
-    // await updateDoc(docRef, {
-    //   tweets: { prevTweet => ...prevTweet, tweet },
-    // });
+    if (!tweet.isEmpty()) {
+      const docRef = doc(db, "users", currentUser);
+      await updateDoc(docRef, {
+        tweets: arrayUnion(tweet),
+      });
+    }
     // reset textarea
   }
 
@@ -35,8 +36,8 @@ function TweetBox({ currentUser, currentUserInfo }) {
               type="text"
               className="form-control fs-5 text-white bg-black border border-0"
               maxLength="280"
+              minLength="1"
               placeholder="What's happening?"
-              required
               onChange={(e) => setTweet(e.target.value)}
             ></textarea>
             <button

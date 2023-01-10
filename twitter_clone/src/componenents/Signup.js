@@ -34,7 +34,7 @@ function Signup() {
           handle: handle,
           email: email,
           password: password,
-          tweets: {},
+          tweets: [],
         });
       } catch (e) {
         const errorMessage = "couldn't add user to firestore";
@@ -107,7 +107,7 @@ function Signup() {
             {/* ------------------ password ------------------ */}
             <div className="input-group mb-3">
               <input
-                type="text"
+                type="password"
                 name="password"
                 className="form-control"
                 placeholder="Password"

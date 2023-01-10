@@ -45,7 +45,7 @@ function Login() {
             {/* ------------------ password ------------------ */}
             <div className="input-group mb-3">
               <input
-                type="text"
+                type="password"
                 name="password"
                 className="form-control"
                 placeholder="Password"
@@ -64,14 +64,6 @@ function Login() {
               >
                 LOGIN
               </button>
-              {/* ------------------ login with Google ------------------ */}
-              {/* <span>- OR -</span>
-              <button
-                className="google-login-btn btn btn-outline-primary w-75 mb-3"
-                type="button"
-              >
-                SIGN IN WITH GOOGLE
-              </button> */}
             </div>
           </form>
           {/* ------------------ signup ------------------ */}

@@ -1,14 +1,11 @@
 import LeftPanel from "./LeftPanel";
 import CenterPanel from "./CenterPanel";
 import RightPanel from "./RightPanel";
+import Loading from "./Loading";
 import { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
-import {
-  // onAuthStateChanged,
-  setPersistence,
-  browserLocalPersistence,
-} from "firebase/auth";
+import { setPersistence, browserLocalPersistence } from "firebase/auth";
 
 function Home() {
   // session for current user
@@ -40,7 +37,8 @@ function Home() {
   }
 
   if (!currentUser || !currentUserInfo) {
-    return <span>LOADING</span>;
+    // if (true) {
+    return <Loading />;
   }
 
   return (
