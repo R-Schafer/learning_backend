@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { addDoc } from "firebase/firestore";
-import { auth, colRef } from "./firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { auth, db } from "./firebase";
 
 function Signup() {
   const [name, setName] = useState("");
@@ -12,39 +12,34 @@ function Signup() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleSignup(e) {
-    e.preventDefault();
+  function handleSignup() {
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/home");
-        alert("create account successfully");
+      .then((currentUserCredential) => {
+        // const userId = currentUserCredential.user.providerData[0].uid
         addNewUserToFirestore();
+        // alert("create account successfully");
+        navigate("/home");
       })
       .catch((error) => {
         // maybe add something about the user already having an account and can't register again
-        const errorMessage = "couldn't add user to firestore";
+        const errorMessage = "couldn't add user to email auth";
         alert(errorMessage);
       });
 
-    function addNewUserToFirestore() {
-      addDoc(colRef, {
-        name: name,
-        username: username,
-        handle: handle,
-        email: email,
-        password: password,
-      }).then(console.log("added"));
-
-      // tried another way to get the id but there was an error
-      // async function addNewUserToFirestore() {
-      //   const docRef = await addDoc(colRef, {
-      //     name: name,
-      //     username: username,
-      //     handle: handle,
-      //     email: email,
-      //     password: password,
-      //   });
-      //   console.log("Document ID: ", docRef.id);
+    async function addNewUserToFirestore() {
+      try {
+        await setDoc(doc(db, "users", email), {
+          name: name,
+          username: username,
+          handle: handle,
+          email: email,
+          password: password,
+          tweets: {},
+        });
+      } catch (e) {
+        const errorMessage = "couldn't add user to firestore";
+        alert(errorMessage);
+      }
     }
   }
 

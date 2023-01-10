@@ -25,3 +25,6 @@ export const db = getFirestore(app);
 
 // collection ref
 export const colRef = collection(db, "users");
+
+// current user
+// export const currentUser = auth.currentUser;

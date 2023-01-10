@@ -3,27 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
 import { signOut, deleteUser } from "firebase/auth";
 
-function MobileDropdown() {
+function MobileDropdown({ currentUser, currentUserInfo }) {
   const navigate = useNavigate();
-  const user = auth.currentUser;
 
-  if (user !== null) {
-    const username = user.username;
-    const handle = user.handle;
-    console.log(username);
-    console.log(handle);
-  }
-
-  function handleDelete() {
-    deleteUser(user)
-      .then(() => {
-        alert("user deleted");
-        navigate("/");
-      })
-      .catch((error) => {
-        const errorMessage = "couldn't delete user";
-        alert(errorMessage);
-      });
+  async function handleDelete() {
+    console.log("TODO");
   }
 
   function handleLogout() {
@@ -48,11 +32,11 @@ function MobileDropdown() {
         <Image />
         <div className="dropdown-menu dropdown-menu-dark text-small shadow">
           <button className="dropdown-item" onClick={handleDelete}>
-            Delete @handle
+            Delete {currentUserInfo.handle}
           </button>
 
           <button className="dropdown-item" onClick={handleLogout}>
-            Log out @handle
+            Log out {currentUserInfo.handle}
           </button>
         </div>
       </div>

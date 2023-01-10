@@ -2,7 +2,7 @@ import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
 import { Link } from "react-router-dom";
 
-function TweetDisplay() {
+function TweetDisplay({ currentUser, currentUserInfo }) {
   return (
     <div>
       <Link

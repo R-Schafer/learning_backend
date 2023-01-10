@@ -1,7 +1,21 @@
+import React, { useState } from "react";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "./firebase";
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
 
-function TweetBox() {
+function TweetBox({ currentUser, currentUserInfo }) {
+  const [tweet, setTweet] = useState("");
+
+  async function addTweet() {
+    console.log("hi");
+    // const docRef = doc(db, "users", "charlie@gmail.com");
+    // await updateDoc(docRef, {
+    //   tweets: { prevTweet => ...prevTweet, tweet },
+    // });
+    // reset textarea
+  }
+
   return (
     <div>
       <div className="tweet-area text-white bg-black list-group-item d-flex flex-column px-3 py-3 border-0 border-bottom border-light border-opacity-25">
@@ -16,16 +30,19 @@ function TweetBox() {
           <Image />
           <div className="w-100 form-group d-flex align-items-end flex-column">
             <textarea
-              name="user-message"
+              name="message"
               id="user-message"
               type="text"
               className="form-control fs-5 text-white bg-black border border-0"
-              maxlength="280"
+              maxLength="280"
               placeholder="What's happening?"
+              required
+              onChange={(e) => setTweet(e.target.value)}
             ></textarea>
             <button
               type="button"
               className="tweet-btn btn btn-color-1 rounded-pill mt-2"
+              onClick={addTweet}
             >
               Tweet
             </button>

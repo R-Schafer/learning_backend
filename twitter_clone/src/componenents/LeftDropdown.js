@@ -1,27 +1,15 @@
 import Image from "../images/Image";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "./firebase";
 import { signOut, deleteUser } from "firebase/auth";
-import { deleteDoc, doc } from "firebase/firestore";
+import { doc } from "firebase/firestore";
 
-function LeftDropdown() {
+function LeftDropdown({ currentUser, currentUserInfo }) {
   const navigate = useNavigate();
-  const user = auth.currentUser;
 
-  function handleDelete() {
-    // delete user from email auth
-    deleteUser(user)
-      .then(() => {
-        console.log("firebase auth deleted");
-        navigate("/");
-      })
-      .catch((error) => {
-        const errorMessage = "couldn't delete user";
-        console.log(errorMessage);
-      });
-    // delete user from firebase
-    const docRef = doc(db, "users", "users.id");
-    deleteDoc(docRef).then(console.log("firestore account deleted"));
+  async function handleDelete() {
+    console.log("TODO");
   }
 
   function handleLogout() {
@@ -45,20 +33,20 @@ function LeftDropdown() {
       >
         <Image />
         <h6 className="mb-0 d-none d-lg-flex flex-column">
-          <strong>username</strong>
+          <strong>{currentUserInfo.username}</strong>
           <span className="opacity-50">
-            <small>handle</small>
+            <small>{currentUserInfo.handle}</small>
           </span>
         </h6>
       </div>
 
       <div className="dropdown-menu dropdown-menu-dark text-small shadow">
         <button className="dropdown-item" onClick={handleDelete}>
-          Delete @handle
+          Delete {currentUserInfo.handle}
         </button>
 
         <button className="dropdown-item" onClick={handleLogout}>
-          Log out @handle
+          Log out {currentUserInfo.handle}
         </button>
       </div>
     </div>
