@@ -86,7 +86,6 @@
 }
 
 .loader {
-  position: relative;
   width: 96px;
   height: 96px;
   transform: rotate(45deg);
@@ -94,16 +93,10 @@
 
 .loader-square {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 28px;
   height: 28px;
   margin: 2px;
-  border-radius: 0px;
   background: white;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   animation: square-animation 10s ease-in-out infinite both;
 }
 

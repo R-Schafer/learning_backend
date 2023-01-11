@@ -37,7 +37,6 @@ function Home() {
   }
 
   if (!currentUser || !currentUserInfo) {
-    // if (true) {
     return <Loading />;
   }
 

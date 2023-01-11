@@ -1,13 +1,27 @@
 import Image from "../images/Image";
 import { useNavigate } from "react-router-dom";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
 import { signOut, deleteUser } from "firebase/auth";
+import { doc, deleteDoc } from "firebase/firestore";
 
 function MobileDropdown({ currentUser, currentUserInfo }) {
   const navigate = useNavigate();
 
   async function handleDelete() {
-    console.log("TODO");
+    // delete from firestore
+    await deleteDoc(doc(db, "users", currentUser));
+    console.log("user deleted from firestore");
+    // delete from firebase auth
+    const user = auth.currentUser;
+    deleteUser(user)
+      .then(() => {
+        navigate("/");
+        console.log("user deleted from firebase auth");
+      })
+      .catch((error) => {
+        const errorMessage = "could not delete user";
+        console.log(errorMessage);
+      });
   }
 
   function handleLogout() {
