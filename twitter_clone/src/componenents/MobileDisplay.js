@@ -2,7 +2,7 @@ import Icons from "../SVGs/Icons";
 import MobileDropdown from "./MobileDropdown";
 import { Link } from "react-router-dom";
 
-function MobileNavbar({ currentUser, currentUserInfo }) {
+function MobileDisplay({ currentUser, currentUserInfo }) {
   return (
     <div className="w-100 bg-black border-top border-light border-opacity-25">
       <ul className="nav pt-2 flex-row justify-content-around">
@@ -40,4 +40,4 @@ function MobileNavbar({ currentUser, currentUserInfo }) {
   );
 }
 
-export default MobileNavbar;
+export default MobileDisplay;

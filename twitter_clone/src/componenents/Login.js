@@ -19,7 +19,7 @@ function Login() {
       })
       .catch((error) => {
         const errorMessage = "Account not found, please try again";
-        alert(errorMessage);
+        console.log(errorMessage);
       });
   }
 
@@ -56,7 +56,7 @@ function Login() {
               />
             </div>
             {/* ------------------ login button ------------------ */}
-            <div className="d-flex flex-column justify-content-center align-items-center">
+            <div className="d-flex mb-3 flex-column justify-content-center align-items-center">
               <button
                 className="login-btn btn btn-outline-primary w-75"
                 type="button"

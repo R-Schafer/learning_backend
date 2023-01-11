@@ -15,15 +15,12 @@ function Signup() {
   function handleSignup() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((currentUserCredential) => {
-        // const userId = currentUserCredential.user.providerData[0].uid
         addNewUserToFirestore();
-        // alert("create account successfully");
         navigate("/home");
       })
       .catch((error) => {
-        // maybe add something about the user already having an account and can't register again
         const errorMessage = "couldn't add user to email auth";
-        alert(errorMessage);
+        console.log(errorMessage);
       });
 
     async function addNewUserToFirestore() {
@@ -72,6 +69,8 @@ function Signup() {
                 placeholder="Username"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                maxLength="18"
+                minLength="5"
                 required
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -86,6 +85,8 @@ function Signup() {
                 placeholder="@handle"
                 aria-label="Handle"
                 aria-describedby="basic-addon1"
+                maxLength="18"
+                minLength="5"
                 required
                 onChange={(e) => setHandle(e.target.value)}
               />
@@ -114,6 +115,7 @@ function Signup() {
                 aria-label="Password"
                 aria-describedby="basic-addon1"
                 required
+                minLength="8"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>

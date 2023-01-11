@@ -2,9 +2,12 @@ import LeftPanel from "./LeftPanel";
 import CenterPanel from "./CenterPanel";
 import RightPanel from "./RightPanel";
 import Loading from "./Loading";
+import Icons from "../SVGs/Icons";
+import Image from "../images/Image";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { setPersistence, browserLocalPersistence } from "firebase/auth";
 
 function Home() {
@@ -13,16 +16,19 @@ function Home() {
   const [currentUserInfo, setCurrentUserInfo] = useState();
 
   useEffect(() => {
-    (async () => {
-      await setPersistence(auth, browserLocalPersistence);
-      const user = auth.currentUser;
-      if (user !== null) {
-        const userInfo = await getUserInfo(user.email);
-        setCurrentUser(user.email);
-        setCurrentUserInfo(userInfo);
-      }
-    })();
+    getUser();
   }, []);
+
+  // get current user info from firebase auth
+  async function getUser() {
+    await setPersistence(auth, browserLocalPersistence);
+    const user = auth.currentUser;
+    if (user !== null) {
+      const userInfo = await getUserInfo(user.email);
+      setCurrentUser(user.email);
+      setCurrentUserInfo(userInfo);
+    }
+  }
 
   // get current user info from firestore
   async function getUserInfo(currentUser) {
@@ -36,15 +42,25 @@ function Home() {
     }
   }
 
+  // add tweet to user info
+  async function addTweet(tweet) {
+    const docRef = doc(db, "users", currentUser);
+    await updateDoc(docRef, {
+      tweets: arrayUnion(tweet),
+    });
+
+    // refetch user info
+    await getUser();
+  }
+
   if (!currentUser || !currentUserInfo) {
     return <Loading />;
   }
 
   return (
     <div className="container-lg h-100 d-flex justify-content-center bg-black">
-      <span>{currentUserInfo.username}</span>
       <div className=" d-flex">
-        <section className="d-sm-flex d-none flex-column flex-shrink-0 py-3 pe-3 border-end border-light border-opacity-25">
+        <section className="d-sm-flex d-none flex-column h-100 flex-shrink-0 py-3 pe-3 border-end border-light border-opacity-25">
           <LeftPanel
             currentUser={currentUser}
             currentUserInfo={currentUserInfo}
@@ -54,6 +70,7 @@ function Home() {
           <CenterPanel
             currentUser={currentUser}
             currentUserInfo={currentUserInfo}
+            addTweet={addTweet}
           />
         </section>
         <section className="d-lg-flex d-none flex-column flex-shrink-0 p-3 border-start border-light border-opacity-25">
