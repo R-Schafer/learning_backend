@@ -6,20 +6,19 @@ import { auth, db } from "./firebase";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [invalidUser, setInvalidUser] = useState(false);
+
   const navigate = useNavigate();
 
-  function handleLogin(e) {
-    e.preventDefault();
-
+  function handleLogin() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
         navigate("/home");
-        alert("login successful");
       })
       .catch((error) => {
-        const errorMessage = "Account not found, please try again";
-        console.log(errorMessage);
+        console.log(error);
+        setInvalidUser(true);
       });
   }
 
@@ -30,7 +29,7 @@ function Login() {
           <h1>Login</h1>
           <form>
             {/* ------------------ email ------------------ */}
-            <div className="input-group mb-3">
+            <div className="input-group mt-3">
               <input
                 type="email"
                 name="email"
@@ -43,7 +42,7 @@ function Login() {
               />
             </div>
             {/* ------------------ password ------------------ */}
-            <div className="input-group mb-3">
+            <div className="input-group mt-3">
               <input
                 type="password"
                 name="password"
@@ -55,8 +54,13 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            <div className="text-danger">
+              {invalidUser
+                ? "No account associated with this email and/or password"
+                : ""}
+            </div>
             {/* ------------------ login button ------------------ */}
-            <div className="d-flex mb-3 flex-column justify-content-center align-items-center">
+            <div className="d-flex mt-3 flex-column justify-content-center align-items-center">
               <button
                 className="login-btn btn btn-outline-primary w-75"
                 type="button"

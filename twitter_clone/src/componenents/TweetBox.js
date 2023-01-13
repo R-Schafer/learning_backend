@@ -9,7 +9,8 @@ function TweetBox({ currentUser, currentUserInfo, addTweet }) {
     // remove any trailing whitespace
     const trimmedTweet = tweet.trim();
     if (trimmedTweet.length > 0) {
-      await addTweet(trimmedTweet);
+      const timeStamp = Date.now();
+      await addTweet(timeStamp, trimmedTweet);
       // reset textarea
       setTweet("");
     }

@@ -2,12 +2,9 @@ import LeftPanel from "./LeftPanel";
 import CenterPanel from "./CenterPanel";
 import RightPanel from "./RightPanel";
 import Loading from "./Loading";
-import Icons from "../SVGs/Icons";
-import Image from "../images/Image";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
-import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
 import { setPersistence, browserLocalPersistence } from "firebase/auth";
 
 function Home() {
@@ -43,12 +40,11 @@ function Home() {
   }
 
   // add tweet to user info
-  async function addTweet(tweet) {
+  async function addTweet(timeStamp, tweet) {
     const docRef = doc(db, "users", currentUser);
     await updateDoc(docRef, {
-      tweets: arrayUnion(tweet),
+      [`tweets.${timeStamp}`]: tweet,
     });
-
     // refetch user info
     await getUser();
   }

@@ -1,10 +1,21 @@
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
+import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
 
-function TweetDisplay({ currentUser, currentUserInfo }) {
-  const tweetList = [...currentUserInfo.tweets].reverse();
-  const displayTweets = tweetList.map((tweet) => {
+function TweetDisplay({ currentUserInfo }) {
+  console.log(currentUserInfo.tweets);
+
+  const keys = Object.keys(currentUserInfo.tweets).sort().reverse();
+  const tweetList = keys.map((key) => [key, currentUserInfo.tweets[key]]);
+
+  // format date/timestamp on tweets
+  function formatTime(time) {
+    const date = new Date(parseInt(time, 10));
+    return formatDistanceToNow(date, { addSuffix: true });
+  }
+
+  const displayTweets = tweetList.map(([time, tweet]) => {
     return (
       <Link
         to=""
@@ -21,7 +32,7 @@ function TweetDisplay({ currentUser, currentUserInfo }) {
                 </span>
                 <Icons type="verify" />
                 <span className="opacity-50 ps-2">
-                  {currentUserInfo.username} · 1m
+                  {currentUserInfo.username} · {formatTime(time)}
                 </span>
               </h6>
               <p className="fs-6 mb-0 pt-2">{tweet}</p>
