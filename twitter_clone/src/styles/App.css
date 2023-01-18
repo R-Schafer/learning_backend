@@ -19,6 +19,10 @@
   fill: currentColor;
 }
 
+.bi-twitter {
+  fill: #1c9aef;
+}
+
 /* --------------------- Left Panel --------------------- */
 
 a:link,
@@ -83,10 +87,44 @@ ul {
 
 /* --------------------- LOGIN --------------------- */
 
-.signup a {
+.signup-link a {
   pointer-events: auto;
   outline: none;
+  color: #1c9aef;
 }
-.signup a:hover {
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  border: 1px solid #1c9aef;
+  color: #1c9aef;
+}
+
+.login-btn:hover {
+  background-color: #1c9aef;
+  color: white;
+  border: 1px solid #1c9aef;
+}
+
+/* --------------------- REGISTER --------------------- */
+
+.signup-btn {
+  border: 1px solid #1c9aef;
+  color: #1c9aef;
+}
+
+.signup-btn:hover {
+  background-color: #1c9aef;
+  color: white;
+  border: 1px solid #1c9aef;
+}
+
+.login-link a {
+  pointer-events: auto;
+  outline: none;
+  color: #1c9aef;
+}
+.login-link a:hover {
   text-decoration: underline;
 }

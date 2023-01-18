@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Icons from "../SVGs/Icons";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "./firebase";
+import { auth } from "./firebase";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -23,17 +24,18 @@ function Login() {
   }
 
   return (
-    <div className="container-xxxl bg-white h-100 d-flex flex-column justify-content-center">
+    <div className="container-xxxl h-100 d-flex flex-column justify-content-center">
       <div className="row justify-content-center">
-        <div className="col-10 col-md-4 col-lg-4 col-xl-3 border text-center p-3">
-          <h1>Login</h1>
+        <div className="col-10 col-md-4 col-lg-4 col-xl-3 bg-dark rounded-3 text-center p-3">
+          <Icons type="logo" />
+          <h1 className="text-light">Login to Clone</h1>
           <form>
             {/* ------------------ email ------------------ */}
             <div className="input-group mt-3">
               <input
                 type="email"
                 name="email"
-                className="form-control"
+                className="form-control bg-dark text-light"
                 placeholder="Email"
                 aria-label="Email"
                 aria-describedby="basic-addon1"
@@ -46,7 +48,7 @@ function Login() {
               <input
                 type="password"
                 name="password"
-                className="form-control"
+                className="form-control bg-dark text-light"
                 placeholder="Password"
                 aria-label="Password"
                 aria-describedby="basic-addon1"
@@ -62,7 +64,7 @@ function Login() {
             {/* ------------------ login button ------------------ */}
             <div className="d-flex mt-3 flex-column justify-content-center align-items-center">
               <button
-                className="login-btn btn btn-outline-primary w-75"
+                className="login-btn btn btn-outline-* w-100"
                 type="button"
                 onClick={handleLogin}
               >
@@ -71,9 +73,9 @@ function Login() {
             </div>
           </form>
           {/* ------------------ signup ------------------ */}
-          <p className="signup d-flex flex-row justify-content-center align-content-center">
+          <p className="signup-link text-light d-flex flex-row justify-content-center align-content-center mt-3">
             Don't have an account?
-            <Link to="/signup" className="text-primary ps-2">
+            <Link to="/signup" className="ps-2">
               <span>Sign up</span>
             </Link>
           </p>

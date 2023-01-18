@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Icons from "../SVGs/Icons";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { setDoc, doc, getDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { auth, db } from "./firebase";
 
 function Signup() {
@@ -75,17 +76,18 @@ function Signup() {
   }
 
   return (
-    <div className="container-xxxl bg-white h-100 d-flex flex-column justify-content-center">
+    <div className="container-xxxl h-100 d-flex flex-column justify-content-center">
       <div className="row justify-content-center">
-        <div className="col-10 col-md-4 col-lg-4 col-xl-3 border text-center p-3">
-          <h1>REGISTER</h1>
+        <div className="col-10 col-md-4 col-lg-4 col-xl-3 bg-dark rounded-3 text-center p-3">
+          <Icons type="logo" />
+          <h1 className="text-light">Join Clone</h1>
           <form>
             {/* ------------------ name ------------------ */}
             <div className="input-group mt-3">
               <input
                 type="text"
                 name="name"
-                className="form-control"
+                className="form-control bg-dark text-light"
                 placeholder="Name"
                 aria-label="Name"
                 aria-describedby="basic-addon1"
@@ -101,7 +103,7 @@ function Signup() {
               <input
                 type="text"
                 name="username"
-                className="form-control"
+                className="form-control bg-dark text-light"
                 placeholder="Username"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
@@ -116,7 +118,7 @@ function Signup() {
               <input
                 type="text"
                 name="handle"
-                className="form-control"
+                className="form-control bg-dark text-light"
                 placeholder="@handle"
                 aria-label="Handle"
                 aria-describedby="basic-addon1"
@@ -131,7 +133,7 @@ function Signup() {
               <input
                 type="email"
                 name="email"
-                className="form-control"
+                className="form-control bg-dark text-light"
                 placeholder="Email"
                 aria-label="Email"
                 aria-describedby="basic-addon1"
@@ -150,7 +152,7 @@ function Signup() {
               <input
                 type="password"
                 name="password"
-                className="form-control"
+                className="form-control bg-dark text-light"
                 placeholder="Password"
                 aria-label="Password"
                 aria-describedby="basic-addon1"
@@ -165,7 +167,7 @@ function Signup() {
             {/* ------------------ sign up button ------------------ */}
             <div className="d-grid mt-3">
               <button
-                className="signup-btn btn btn-outline-primary w-75 mx-auto"
+                className="signup-btn btn btn-outline-* w-100 mx-auto"
                 type="button"
                 onClick={handleSignup}
               >
@@ -174,9 +176,9 @@ function Signup() {
             </div>
           </form>
           {/* ------------------ login ------------------ */}
-          <p className="signup d-flex mt-3 flex-row justify-content-center align-content-center">
+          <p className="login-link text-light d-flex mt-3 flex-row justify-content-center align-content-center">
             Already have an account?
-            <Link to="/" className="text-primary ps-2">
+            <Link to="/" className="ps-2">
               <span>Log In</span>
             </Link>
           </p>

@@ -1,19 +1,12 @@
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
-import { formatDistanceToNow } from "date-fns";
+// import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
+import ReactTimeAgo from "react-time-ago";
 
 function TweetDisplay({ currentUserInfo }) {
-  console.log(currentUserInfo.tweets);
-
   const keys = Object.keys(currentUserInfo.tweets).sort().reverse();
   const tweetList = keys.map((key) => [key, currentUserInfo.tweets[key]]);
-
-  // format date/timestamp on tweets
-  function formatTime(time) {
-    const date = new Date(parseInt(time, 10));
-    return formatDistanceToNow(date, { addSuffix: true });
-  }
 
   const displayTweets = tweetList.map(([time, tweet]) => {
     return (
@@ -32,7 +25,12 @@ function TweetDisplay({ currentUserInfo }) {
                 </span>
                 <Icons type="verify" />
                 <span className="opacity-50 ps-2">
-                  {currentUserInfo.username} · {formatTime(time)}
+                  {currentUserInfo.username} ·{" "}
+                  <ReactTimeAgo
+                    date={new Date(parseInt(time, 10))}
+                    locale="en-US"
+                    timeStyle="twitter"
+                  />
                 </span>
               </h6>
               <p className="fs-6 mb-0 pt-2">{tweet}</p>
@@ -75,7 +73,9 @@ function TweetDisplay({ currentUserInfo }) {
                   <strong>Rainey's Clone</strong>
                 </span>
                 <Icons type="verify" />
-                <span className="opacity-50 ps-2">@raineys_clone · 1m</span>
+                <span className="opacity-50 ps-2">
+                  @raineys_clone · 12/15/22
+                </span>
               </h6>
               <p className="fs-6 mb-0 pt-2">
                 Welcome to my Twitter clone. Please note that Signup, Login,
