@@ -4,7 +4,7 @@ import RightPanel from "./RightPanel";
 import Loading from "./Loading";
 import { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
-import { doc, getDoc, Timestamp, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { setPersistence, browserLocalPersistence } from "firebase/auth";
 
 function Home() {

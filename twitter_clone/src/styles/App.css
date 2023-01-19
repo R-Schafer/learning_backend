@@ -85,6 +85,15 @@ ul {
   color: #1c9aef;
 }
 
+.follow a {
+  pointer-events: auto;
+}
+
+.follow li:hover {
+  cursor: pointer;
+  background-color: #111111;
+}
+
 /* --------------------- LOGIN --------------------- */
 
 .signup-link a {
@@ -92,6 +101,7 @@ ul {
   outline: none;
   color: #1c9aef;
 }
+
 .signup-link a:hover {
   text-decoration: underline;
 }

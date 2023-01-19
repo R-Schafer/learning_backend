@@ -17,10 +17,7 @@ function CenterPanel({ currentUser, currentUserInfo, addTweet }) {
         />
       </div>
       <div className="sticky-bottom d-sm-none">
-        <MobileDisplay
-          // currentUser={currentUser}
-          currentUserInfo={currentUserInfo}
-        />
+        <MobileDisplay currentUserInfo={currentUserInfo} />
       </div>
     </div>
   );

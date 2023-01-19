@@ -1,12 +1,13 @@
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
-// import { formatDistanceToNow } from "date-fns";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 
 function TweetDisplay({ currentUserInfo }) {
   const keys = Object.keys(currentUserInfo.tweets).sort().reverse();
   const tweetList = keys.map((key) => [key, currentUserInfo.tweets[key]]);
+
+  // conditional for when a user doesn't have tweet
 
   const displayTweets = tweetList.map(([time, tweet]) => {
     return (
