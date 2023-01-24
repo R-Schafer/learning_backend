@@ -31,7 +31,7 @@ a:hover,
 a:active {
   color: white;
   text-decoration: none;
-  pointer-events: none;
+  /* pointer-events: none; */
   vertical-align: -0.125em;
 }
 
@@ -137,4 +137,31 @@ ul {
 }
 .login-link a:hover {
   text-decoration: underline;
+}
+
+/* --------------------- USER PAGE  --------------------- */
+
+.back-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.back-button:hover {
+  color: rgb(110, 110, 110);
+}
+
+.mobile-userpage-login button {
+  color: #1c9aef;
+  border: 1px solid #1c9aef;
+  background-color: transparent;
+}
+
+.mobile-userpage-login button:hover {
+  /* pointer-events: auto; */
+  pointer-events: all;
+  color: white;
+  background-color: #1c9aef;
+  cursor: pointer;
 }

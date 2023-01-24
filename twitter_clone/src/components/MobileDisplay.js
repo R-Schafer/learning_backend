@@ -2,7 +2,7 @@ import Icons from "../SVGs/Icons";
 import MobileDropdown from "./MobileDropdown";
 import { Link } from "react-router-dom";
 
-function MobileDisplay({ currentUser, currentUserInfo }) {
+function MobileDisplay() {
   return (
     <div className="w-100 bg-black border-top border-light border-opacity-25">
       <ul className="nav pt-2 flex-row justify-content-around">
@@ -19,10 +19,7 @@ function MobileDisplay({ currentUser, currentUserInfo }) {
           </Link>
         </li>
         {/* -- logout -- */}
-        <MobileDropdown
-          currentUser={currentUser}
-          currentUserInfo={currentUserInfo}
-        />
+        <MobileDropdown />
         {/* -- notifications -- */}
         <li>
           <Link to="" className="nav-link" aria-current="page">

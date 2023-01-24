@@ -1,13 +1,16 @@
+import { useContext } from "react";
+import { LoginContext } from "../App";
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 
-function TweetDisplay({ currentUserInfo }) {
+function TweetDisplay() {
+  const { currentUserInfo } = useContext(LoginContext);
   const keys = Object.keys(currentUserInfo.tweets).sort().reverse();
   const tweetList = keys.map((key) => [key, currentUserInfo.tweets[key]]);
 
-  // conditional for when a user doesn't have tweet
+  // conditional for when a user doesn't have tweets
 
   const displayTweets = tweetList.map(([time, tweet]) => {
     return (
@@ -74,9 +77,7 @@ function TweetDisplay({ currentUserInfo }) {
                   <strong>Rainey's Clone</strong>
                 </span>
                 <Icons type="verify" />
-                <span className="opacity-50 ps-2">
-                  @raineys_clone · 12/15/22
-                </span>
+                <span className="opacity-50 ps-2">@raineys_clone · Dec 15</span>
               </h6>
               <p className="fs-6 mb-0 pt-2">
                 Welcome to my Twitter clone. Please note that Signup, Login,

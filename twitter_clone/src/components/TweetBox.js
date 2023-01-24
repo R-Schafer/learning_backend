@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState, useContext } from "react";
+import { LoginContext } from "../App";
 import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
 
-function TweetBox({ currentUser, currentUserInfo, addTweet }) {
+function TweetBox() {
+  const { addTweet } = useContext(LoginContext);
   const [tweet, setTweet] = useState();
 
   async function checkTweet() {

@@ -1,22 +1,27 @@
-import { useState, useEffect } from "react";
-import { db } from "./firebase";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { collection, query, where, getDocs } from "firebase/firestore";
 import Loading from "./Loading";
 import NotFound from "./NotFound";
+import LeftPanel from "./LeftPanel";
+import CenterPanel from "./CenterPanel";
 import UserPageLeftPanel from "./UserPageLeftPanel";
 import UserPageCenterPanel from "./UserPageCenterPanel";
 import RightPanel from "./RightPanel";
+import { LoginContext } from "../App";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "./firebase";
 
 function UserPage() {
   const [loading, setLoading] = useState(true);
-  const [userInfo, setUserInfo] = useState();
+  const [findUserInfo, setFindUserInfo] = useState();
   const { handle } = useParams();
+  const { currentUser } = useContext(LoginContext);
 
   useEffect(() => {
     findUser(handle);
-  }, []);
+  }, [handle]);
 
+  // finding user by url
   async function findUser(handle) {
     const q = query(collection(db, "users"), where("handle", "==", handle));
     const querySnapshot = await getDocs(q);
@@ -24,7 +29,8 @@ function UserPage() {
 
     // if user exists
     if (doc) {
-      setUserInfo(doc.data());
+      setFindUserInfo(doc.data());
+      console.log(findUserInfo);
     }
     setLoading(false);
   }
@@ -32,18 +38,39 @@ function UserPage() {
   if (loading) {
     return <Loading />;
   }
-  if (!userInfo) {
+
+  if (!findUserInfo) {
     return <NotFound />;
   }
 
+  // if currentUser is not signed in
+  if (!currentUser) {
+    return (
+      <div className="container-lg h-100 d-flex justify-content-center bg-black">
+        <div className=" d-flex">
+          <section className="d-sm-flex d-none flex-column h-100 flex-shrink-0 py-3 pe-3 border-end border-light border-opacity-25">
+            <UserPageLeftPanel />
+          </section>
+          <section className="w-100 p-10 d-flex ">
+            <UserPageCenterPanel />
+          </section>
+          <section className="d-lg-flex d-none flex-column flex-shrink-0 p-3 border-start border-light border-opacity-25">
+            <RightPanel />
+          </section>
+        </div>
+      </div>
+    );
+  }
+
+  // if currentUser is signed in
   return (
     <div className="container-lg h-100 d-flex justify-content-center bg-black">
       <div className=" d-flex">
         <section className="d-sm-flex d-none flex-column h-100 flex-shrink-0 py-3 pe-3 border-end border-light border-opacity-25">
-          <UserPageLeftPanel />
+          <LeftPanel />
         </section>
         <section className="w-100 p-10 d-flex ">
-          <UserPageCenterPanel userInfo={userInfo} />
+          <CenterPanel />
         </section>
         <section className="d-lg-flex d-none flex-column flex-shrink-0 p-3 border-start border-light border-opacity-25">
           <RightPanel />

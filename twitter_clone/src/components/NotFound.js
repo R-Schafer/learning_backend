@@ -6,7 +6,7 @@ function NotFound() {
       <div className="row justify-content-center">
         <div className="col-10 col-md-4 col-lg-4 col-xl-3 bg-dark rounded-3 text-center p-3">
           <Icons type="logo" />
-          <h3 className="text-light">Could not find a user with that handle</h3>
+          <h3 className="text-light">Page not found</h3>
         </div>
       </div>
     </div>

@@ -1,10 +1,13 @@
+import { useContext } from "react";
+import { LoginContext } from "../App";
 import Image from "../images/Image";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "./firebase";
 import { signOut, deleteUser } from "firebase/auth";
 import { doc, deleteDoc } from "firebase/firestore";
 
-function MobileDropdown({ currentUser, currentUserInfo }) {
+function MobileDropdown() {
+  const { currentUser, currentUserInfo } = useContext(LoginContext);
   const navigate = useNavigate();
 
   async function handleDelete() {

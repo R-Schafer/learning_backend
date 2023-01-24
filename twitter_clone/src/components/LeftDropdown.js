@@ -4,7 +4,11 @@ import { auth, db } from "./firebase";
 import { signOut, deleteUser } from "firebase/auth";
 import { doc, deleteDoc } from "firebase/firestore";
 
-function LeftDropdown({ currentUser, currentUserInfo }) {
+import { useContext } from "react";
+import { LoginContext } from "../App";
+
+function LeftDropdown() {
+  const { currentUser, currentUserInfo } = useContext(LoginContext);
   const navigate = useNavigate();
 
   async function handleDelete() {
