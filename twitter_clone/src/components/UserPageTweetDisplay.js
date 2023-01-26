@@ -2,13 +2,10 @@ import Icons from "../SVGs/Icons";
 import Image from "../images/Image";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
-import { LoginContext } from "../App";
-import { useContext } from "react";
 
-function UserPageTweetDisplay() {
-  const { userInfo } = useContext(LoginContext);
-  const keys = Object.keys(userInfo.tweets).sort().reverse();
-  const tweetList = keys.map((key) => [key, userInfo.tweets[key]]);
+function UserPageTweetDisplay({ findUserInfo }) {
+  const keys = Object.keys(findUserInfo.tweets).sort().reverse();
+  const tweetList = keys.map((key) => [key, findUserInfo.tweets[key]]);
 
   const displayTweets = tweetList.map(([time, tweet]) => {
     return (
@@ -23,11 +20,11 @@ function UserPageTweetDisplay() {
             <div className="w-100">
               <h6 className="mb-0">
                 <span className="pe-1">
-                  <strong>{userInfo.username}</strong>
+                  <strong>{findUserInfo.username}</strong>
                 </span>
                 <Icons type="verify" />
                 <span className="opacity-50 ps-2">
-                  {userInfo.username} ·{" "}
+                  {findUserInfo.username} ·{" "}
                   <ReactTimeAgo
                     date={new Date(parseInt(time, 10))}
                     locale="en-US"

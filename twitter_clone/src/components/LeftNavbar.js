@@ -12,8 +12,8 @@ function LeftNavbar() {
       </Link>
       <ul className="fs-5 flex-column mt-3">
         {/* -- home -- */}
-        <li className="py-3 d-flex flex-row">
-          <Link to="" className="d-flex flex-row" aria-current="page">
+        <li className="home-nav py-3 d-flex flex-row">
+          <Link to="/home" className="d-flex flex-row" aria-current="page">
             <Icons type="home" class="bi pe-none me-2" />
             <span className="ms-3 d-none d-lg-block">Home</span>
           </Link>

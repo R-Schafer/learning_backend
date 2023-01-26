@@ -25,6 +25,7 @@ function App() {
     await setPersistence(auth, browserLocalPersistence);
     const user = auth.currentUser;
     if (user !== null) {
+      console.log(user.providerData);
       const userInfo = await getUserInfo(user.email);
       setCurrentUser(user.email);
       setCurrentUserInfo(userInfo);

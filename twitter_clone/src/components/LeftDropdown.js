@@ -8,7 +8,8 @@ import { useContext } from "react";
 import { LoginContext } from "../App";
 
 function LeftDropdown() {
-  const { currentUser, currentUserInfo } = useContext(LoginContext);
+  const { currentUser, currentUserInfo, setCurrentUser, setCurrentUserInfo } =
+    useContext(LoginContext);
   const navigate = useNavigate();
 
   async function handleDelete() {
@@ -20,6 +21,8 @@ function LeftDropdown() {
     deleteUser(user)
       .then(() => {
         navigate("/");
+        setCurrentUser(null);
+        setCurrentUserInfo(null);
         console.log("user deleted from firebase auth");
       })
       .catch((error) => {
@@ -32,6 +35,8 @@ function LeftDropdown() {
     signOut(auth)
       .then(() => {
         navigate("/");
+        setCurrentUser(null);
+        setCurrentUserInfo(null);
         console.log("sign out successful");
       })
       .catch((error) => {

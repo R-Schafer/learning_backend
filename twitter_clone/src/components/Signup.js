@@ -25,7 +25,7 @@ function Signup() {
   function validateInputs() {
     const nameRegex = /^[a-zA-Z ]{1,60}$/;
     const usernameRegex = /^(?=.*\w)[\w \W]{5,15}$/;
-    const handleRegex = /^(?=.*\w)[\w ]{5,15}$/;
+    const handleRegex = /^(?=.*\w)[\w]{5,15}$/;
     const emailRegex = /^\S+@[a-zA-z]+\.[a-zA-z]+$/;
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d ]{8,50}$/;
 
@@ -119,14 +119,16 @@ function Signup() {
                 type="text"
                 name="handle"
                 className="form-control bg-dark text-light"
-                placeholder="handle"
+                placeholder="Handle"
                 aria-label="Handle"
                 aria-describedby="basic-addon1"
                 onChange={(e) => setHandle(e.target.value)}
               />
             </div>
             <div className="text-danger">
-              {handleIsValid ? "" : "Must be 5-15 characters"}
+              {handleIsValid
+                ? ""
+                : "Letters and numbers only, must be 5-15 characters"}
             </div>
             {/* ------------------ email ------------------ */}
             <div className="input-group mt-3">

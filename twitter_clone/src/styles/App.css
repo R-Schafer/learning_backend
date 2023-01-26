@@ -23,16 +23,27 @@
   fill: #1c9aef;
 }
 
-/* --------------------- Left Panel --------------------- */
-
 a:link,
 a:visited,
 a:hover,
 a:active {
   color: white;
   text-decoration: none;
-  /* pointer-events: none; */
+  pointer-events: none;
   vertical-align: -0.125em;
+}
+
+/* --------------------- Left Panel --------------------- */
+
+.home-nav a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.home-nav a:link,
+.home-nav a:visited,
+.home-nav a:active {
+  pointer-events: all;
 }
 
 .dropdown:hover {
@@ -159,9 +170,13 @@ ul {
 }
 
 .mobile-userpage-login button:hover {
-  /* pointer-events: auto; */
-  pointer-events: all;
   color: white;
   background-color: #1c9aef;
   cursor: pointer;
+}
+
+.mobile-userpage-login a:link,
+.mobile-userpage-login a:visited,
+.mobile-userpage-login a:active {
+  pointer-events: all;
 }

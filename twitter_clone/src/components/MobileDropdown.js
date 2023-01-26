@@ -7,7 +7,8 @@ import { signOut, deleteUser } from "firebase/auth";
 import { doc, deleteDoc } from "firebase/firestore";
 
 function MobileDropdown() {
-  const { currentUser, currentUserInfo } = useContext(LoginContext);
+  const { currentUser, currentUserInfo, setCurrentUser, setCurrentUserInfo } =
+    useContext(LoginContext);
   const navigate = useNavigate();
 
   async function handleDelete() {
@@ -18,6 +19,8 @@ function MobileDropdown() {
     deleteUser(user)
       .then(() => {
         navigate("/");
+        setCurrentUser(null);
+        setCurrentUserInfo(null);
       })
       .catch((error) => {
         const errorMessage = "could not delete user";
@@ -29,6 +32,8 @@ function MobileDropdown() {
     signOut(auth)
       .then(() => {
         navigate("/");
+        setCurrentUser(null);
+        setCurrentUserInfo(null);
       })
       .catch((error) => {
         const errorMessage = "could not sign user out";

@@ -1,10 +1,10 @@
 import Icons from "../SVGs/Icons";
 import UserPageImage from "../images/UserPageImage";
-import { LoginContext } from "../App";
-import { useContext } from "react";
+// import { LoginContext } from "../App";
+// import { useContext } from "react";
 
-function UserPageHeader() {
-  const { userInfo } = useContext(LoginContext);
+function UserPageHeader({ findUserInfo }) {
+  // const { userInfo } = useContext(LoginContext);
   function handleBackClick() {
     console.log("back");
   }
@@ -18,7 +18,7 @@ function UserPageHeader() {
               <Icons type="back-button" />
             </button>
           </div>
-          <h4>{userInfo.username}</h4>
+          <h4>{findUserInfo.username}</h4>
           <div className="ps-1 pb-2">
             <Icons type="verify" />
           </div>
@@ -40,7 +40,7 @@ function UserPageHeader() {
         <div className="d-flex flex-column w-100 px-3 py-3 justify-content-between">
           <div className="d-flex flex-row">
             <h4 className="mb-0">
-              <strong>{userInfo.username}</strong>
+              <strong>{findUserInfo.username}</strong>
             </h4>
             <div className="ps-1">
               <Icons type="verify" />
@@ -48,11 +48,12 @@ function UserPageHeader() {
           </div>
 
           <span className="opacity-50">
-            <small>@{userInfo.handle}</small>
+            <small>@{findUserInfo.handle}</small>
           </span>
           <p className="pt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            quisquam doloribus sapiente. Nulla ratione quasi, dolor sed vitae.
+            I'm a fake account used for demo purposes only.
+            <br /> You can find me by my url or by clicking one of the "Who to
+            Follow" users.
           </p>
           <div className="opacity-50 d-flex flex-row">
             <div>

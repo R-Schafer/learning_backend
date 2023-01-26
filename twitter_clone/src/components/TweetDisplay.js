@@ -10,8 +10,6 @@ function TweetDisplay() {
   const keys = Object.keys(currentUserInfo.tweets).sort().reverse();
   const tweetList = keys.map((key) => [key, currentUserInfo.tweets[key]]);
 
-  // conditional for when a user doesn't have tweets
-
   const displayTweets = tweetList.map(([time, tweet]) => {
     return (
       <Link
