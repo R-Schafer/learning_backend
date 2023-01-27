@@ -51,9 +51,8 @@ function UserPageHeader({ findUserInfo }) {
             <small>@{findUserInfo.handle}</small>
           </span>
           <p className="pt-3">
-            I'm a fake account used for demo purposes only.
-            <br /> You can find me by my url or by clicking one of the "Who to
-            Follow" users.
+            This is a fake account used for demo purposes only.
+            <br /> Click around, explore, and have fun!
           </p>
           <div className="opacity-50 d-flex flex-row">
             <div>

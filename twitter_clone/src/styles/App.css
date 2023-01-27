@@ -79,6 +79,18 @@ a:active {
   color: #1c9aef;
 }
 
+.pinned-tweet a:hover {
+  color: white;
+  background-color: #1c9aef;
+  cursor: pointer;
+}
+
+.pinned-tweet a:link,
+.pinned-tweet a:visited,
+.pinned-tweet a:active {
+  pointer-events: all;
+}
+
 /* --------------------- Right Panel --------------------- */
 /* - Search - */
 #search {

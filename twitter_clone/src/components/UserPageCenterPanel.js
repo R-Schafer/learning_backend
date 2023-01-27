@@ -8,7 +8,7 @@ function UserPageCenterPanel({ findUserInfo }) {
   const { currentUser } = useContext(LoginContext);
 
   return (
-    <div className="h-100 d-flex flex-column justify-content-between">
+    <div className="h-100 w-100 d-flex flex-column justify-content-between">
       <div>
         <UserPageHeader findUserInfo={findUserInfo} />
         <UserPageTweetDisplay findUserInfo={findUserInfo} />
