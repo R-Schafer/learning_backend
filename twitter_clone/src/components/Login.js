@@ -1,25 +1,22 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import Icons from "../SVGs/Icons";
-import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
+import { Link } from "react-router-dom";
+import { LoginContext } from "../App";
 
 function Login() {
+  const { login } = useContext(LoginContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [invalidUser, setInvalidUser] = useState(false);
 
-  const navigate = useNavigate();
-
-  function handleLogin() {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        navigate("/home");
-      })
-      .catch((error) => {
-        console.log(error);
-        setInvalidUser(true);
-      });
+  async function handleLogin() {
+    try {
+      await login(email, password);
+    } catch (error) {
+      console.log(error);
+      setInvalidUser(true);
+    }
   }
 
   return (

@@ -2,10 +2,10 @@ function Image() {
   return (
     <img
       src="https://github.com/mdo.png"
-      alt=""
+      alt="man with beard"
       width="50"
       height="50"
-      className="rounded-circle me-2"
+      className="rounded-circle me-2 "
     />
   );
 }

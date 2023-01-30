@@ -10,6 +10,7 @@ function UserPageTweetDisplay({ findUserInfo }) {
   const displayTweets = tweetList.map(([time, tweet]) => {
     return (
       <Link
+        key={time}
         to=""
         className="bg-black d-flex flex-column py-3 px-3 border-bottom border-light border-opacity-25"
         aria-current="true"

@@ -1,9 +1,14 @@
 import "./styles/App.css";
 import { createContext, useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { db, auth } from "./components/firebase";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { setPersistence, browserLocalPersistence } from "firebase/auth";
+import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
+import {
+  setPersistence,
+  browserLocalPersistence,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
@@ -16,9 +21,49 @@ function App() {
   const [currentUser, setCurrentUser] = useState();
   const [currentUserInfo, setCurrentUserInfo] = useState();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getUser();
   }, []);
+
+  // login
+  async function login(email, password) {
+    await signInWithEmailAndPassword(auth, email, password);
+    await getUser();
+    navigate("/home");
+  }
+
+  // signup
+  async function signup(name, username, handle, email, password) {
+    await createUserWithEmailAndPassword(auth, email, password);
+    await addNewUserToFirestore(name, username, handle, email, password);
+    await getUser();
+    navigate("/home");
+  }
+
+  // add user to firestore
+  async function addNewUserToFirestore(
+    name,
+    username,
+    handle,
+    email,
+    password
+  ) {
+    try {
+      await setDoc(doc(db, "users", email), {
+        name: name,
+        username: username,
+        handle: handle,
+        email: email,
+        password: password,
+        tweets: {},
+      });
+    } catch (e) {
+      const errorMessage = "couldn't add user to firestore";
+      alert(errorMessage);
+    }
+  }
 
   // get current user info from firebase auth
   async function getUser() {
@@ -58,9 +103,9 @@ function App() {
       <LoginContext.Provider
         value={{
           currentUser,
-          setCurrentUser,
           currentUserInfo,
-          setCurrentUserInfo,
+          login,
+          signup,
           addTweet,
         }}
       >

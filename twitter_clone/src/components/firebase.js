@@ -1,7 +1,5 @@
-// import { faker } from "https://cdn.skypack.dev/@faker-js/faker";
-
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 //   configuration
@@ -22,9 +20,3 @@ export const auth = getAuth(app);
 
 // initialize firestore
 export const db = getFirestore(app);
-
-// collection ref
-export const colRef = collection(db, "users");
-
-// current user
-// export const currentUser = auth.currentUser;

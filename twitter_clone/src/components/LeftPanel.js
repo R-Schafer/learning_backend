@@ -1,15 +1,22 @@
+import { useContext } from "react";
 import LeftNavbar from "./LeftNavbar";
 import LeftDropdown from "./LeftDropdown";
+import { LoginContext } from "../App";
+import UserPageLeftPanel from "./UserPageLeftPanel";
 
-function LeftPanel({ currentUser, currentUserInfo }) {
+function LeftPanel() {
+  const { currentUser } = useContext(LoginContext);
   return (
     <div className="h-100">
       <div className="h-100 d-flex flex-column justify-content-between">
-        <LeftNavbar />
-        <LeftDropdown
-          currentUser={currentUser}
-          currentUserInfo={currentUserInfo}
-        />
+        {currentUser ? (
+          <>
+            <LeftNavbar />
+            <LeftDropdown />
+          </>
+        ) : (
+          <UserPageLeftPanel />
+        )}
       </div>
     </div>
   );

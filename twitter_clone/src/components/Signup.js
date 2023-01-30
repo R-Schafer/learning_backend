@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import Icons from "../SVGs/Icons";
-import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore";
-import { auth, db } from "./firebase";
+import { LoginContext } from "../App";
+import { Link } from "react-router-dom";
 
 function Signup() {
+  const { signup } = useContext(LoginContext);
+
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [handle, setHandle] = useState("");
@@ -18,8 +18,6 @@ function Signup() {
   const [handleIsValid, setHandleIsValid] = useState(true);
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
-
-  const navigate = useNavigate();
 
   // validating the users input information
   function validateInputs() {
@@ -46,31 +44,13 @@ function Signup() {
     );
   }
 
-  function handleSignup() {
+  async function handleSignup() {
     if (validateInputs()) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((currentUserCredential) => {
-          addNewUserToFirestore();
-          navigate("/home");
-        })
-        .catch((error) => {
-          setExistingEmail(true);
-        });
-
-      async function addNewUserToFirestore() {
-        try {
-          await setDoc(doc(db, "users", email), {
-            name: name,
-            username: username,
-            handle: handle,
-            email: email,
-            password: password,
-            tweets: {},
-          });
-        } catch (e) {
-          const errorMessage = "couldn't add user to firestore";
-          alert(errorMessage);
-        }
+      try {
+        await signup(name, username, handle, email, password);
+      } catch (error) {
+        console.log(error);
+        setExistingEmail(true);
       }
     }
   }

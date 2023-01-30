@@ -1,23 +1,12 @@
 import Icons from "../SVGs/Icons";
 import UserPageImage from "../images/UserPageImage";
-// import { LoginContext } from "../App";
-// import { useContext } from "react";
+import UserPageBanner from "../images/UserPageBanner";
 
 function UserPageHeader({ findUserInfo }) {
-  // const { userInfo } = useContext(LoginContext);
-  function handleBackClick() {
-    console.log("back");
-  }
-
   return (
     <div>
       <div className=" text-white d-flex flex-column border-0 border-bottom border-light border-opacity-25">
         <span className="d-flex flex-row align-items-center pb-2 px-3 py-3 d-sm-flex d-none">
-          <div className="opacity-75 pe-3 ">
-            <button className="back-button pb-1" onClick={handleBackClick}>
-              <Icons type="back-button" />
-            </button>
-          </div>
           <h4>{findUserInfo.username}</h4>
           <div className="ps-1 pb-2">
             <Icons type="verify" />
@@ -26,16 +15,13 @@ function UserPageHeader({ findUserInfo }) {
             <Icons type="logo" />
           </div>
         </span>
-        <div className="bg-dark d-sm-none">
-          <button
-            className="back-button opacity-75 pe-3 pb-2 px-3 py-3"
-            onClick={handleBackClick}
-          >
-            <Icons type="back-button" />
-          </button>
-        </div>
-        <div className="d-flex flex-row bg-dark px-3 py-3">
-          <UserPageImage />
+        <div className="d-flex flex-column">
+          <div className="banner">
+            <UserPageBanner />
+          </div>
+          <div className="user-img px-3">
+            <UserPageImage />
+          </div>
         </div>
         <div className="d-flex flex-column w-100 px-3 py-3 justify-content-between">
           <div className="d-flex flex-row">
@@ -56,10 +42,10 @@ function UserPageHeader({ findUserInfo }) {
           </p>
           <div className="opacity-50 d-flex flex-row">
             <div>
-              <Icons type="calendar" /> Joined Date 2023
+              <Icons type="calendar" /> Joined
             </div>
             <div className="ps-4">
-              <Icons type="location" /> Location, Location
+              <Icons type="location" /> Location
             </div>
           </div>
         </div>
