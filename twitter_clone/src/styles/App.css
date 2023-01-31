@@ -37,6 +37,7 @@ a:active {
 
 .home-nav a:hover {
   text-decoration: underline;
+  color: white;
   cursor: pointer;
 }
 
@@ -119,6 +120,10 @@ ul {
 
 /* --------------------- LOGIN --------------------- */
 
+.box {
+  width: 300px;
+  /* max-width: 400px; */
+}
 .signup-link a {
   pointer-events: auto;
   outline: none;

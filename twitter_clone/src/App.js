@@ -2,17 +2,20 @@ import "./styles/App.css";
 import { createContext, useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { db, auth } from "./components/firebase";
-import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, setDoc, deleteDoc } from "firebase/firestore";
 import {
   setPersistence,
   browserLocalPersistence,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signOut,
+  deleteUser,
 } from "firebase/auth";
+import { faker } from "@faker-js/faker";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
-import UserPage from "./components/UserPage";
+import UserPage from "./components/userpage/UserPage";
 import NotFound from "./components/NotFound";
 
 export const LoginContext = createContext(null);
@@ -42,6 +45,37 @@ function App() {
     navigate("/home");
   }
 
+  // logout
+  async function logout() {
+    await signOut(auth)
+      .then(() => {
+        navigate("/");
+        setCurrentUser(null);
+        setCurrentUserInfo(null);
+      })
+      .catch((error) => {
+        const errorMessage = "could not sign user out";
+        console.log(errorMessage);
+      });
+  }
+
+  // delete user's account
+  async function deleteAcct() {
+    await deleteDoc(doc(db, "users", currentUser));
+    // delete from firebase auth
+    const user = auth.currentUser;
+    await deleteUser(user)
+      .then(() => {
+        navigate("/");
+        setCurrentUser(null);
+        setCurrentUserInfo(null);
+      })
+      .catch((error) => {
+        const errorMessage = "could not delete user";
+        console.log(errorMessage);
+      });
+  }
+
   // add user to firestore
   async function addNewUserToFirestore(
     name,
@@ -50,6 +84,10 @@ function App() {
     email,
     password
   ) {
+    // fetching images
+    const imageResponse = await fetch(faker.image.people());
+    const bannerResponse = await fetch(faker.image.nature());
+
     try {
       await setDoc(doc(db, "users", email), {
         name: name,
@@ -58,6 +96,8 @@ function App() {
         email: email,
         password: password,
         tweets: {},
+        image: imageResponse.url,
+        banner: bannerResponse.url,
       });
     } catch (e) {
       const errorMessage = "couldn't add user to firestore";
@@ -106,6 +146,8 @@ function App() {
           currentUserInfo,
           login,
           signup,
+          logout,
+          deleteAcct,
           addTweet,
         }}
       >

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { LoginContext } from "../App";
 import Icons from "../SVGs/Icons";
-import Image from "../images/Image";
+import Image from "./images/Image";
 
 function TweetBox() {
   const { addTweet } = useContext(LoginContext);

@@ -1,6 +1,6 @@
 import Icons from "../SVGs/Icons";
-import Image from "../images/Image";
 import { Link } from "react-router-dom";
+import FollowPageImage from "./images/FollowPageImage";
 
 function Follow() {
   return (
@@ -11,7 +11,7 @@ function Follow() {
           <ul className="follow p-0 m-0 w-100">
             <li className="pb-2 ps-3 pt-2">
               <Link className="d-flex flex-row" to="/user/Raineys_Clone">
-                <Image />
+                <FollowPageImage handle={"raineys_clone"} />
                 <div className="d-flex flex-column w-100 py-2 justify-content-between">
                   <h6 className="mb-0 d-flex flex-row">
                     <strong>Rainey's Clone</strong>
@@ -28,7 +28,7 @@ function Follow() {
 
             <li className="pb-2 ps-3 pt-2">
               <Link className="d-flex flex-row" to="/user/npc4lyfe">
-                <Image />
+                <FollowPageImage handle={"npc4lyfe"} />
                 <div className="d-flex flex-column w-100 py-2 justify-content-between">
                   <h6 className="mb-0 d-flex flex-row">
                     <strong>I'm a NPC</strong>
@@ -45,7 +45,7 @@ function Follow() {
 
             <li className="pb-2 ps-3 pt-2">
               <Link className="d-flex flex-row" to="/user/thisisafake">
-                <Image />
+                <FollowPageImage handle={"thisisafake"} />
                 <div className="d-flex flex-column w-100 py-2 justify-content-between">
                   <h6 className="mb-0 d-flex flex-row">
                     <strong>Fake Fake</strong>

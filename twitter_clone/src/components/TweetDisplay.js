@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { LoginContext } from "../App";
 import Icons from "../SVGs/Icons";
-import Image from "../images/Image";
+import Image from "./images/Image";
+import FollowPageImage from "./images/FollowPageImage";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 
@@ -68,7 +69,7 @@ function TweetDisplay() {
             </span>
           </div>
           <div className="d-flex flex-row">
-            <Image />
+            <FollowPageImage handle={"raineys_clone"} />
             <div className="d-flex w-100 pt-2 ps-2 justify-content-between">
               <div className="w-100">
                 <h6 className="mb-0">

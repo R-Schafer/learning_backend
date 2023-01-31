@@ -7,8 +7,8 @@ function MobileDisplay() {
     <div className="w-100 bg-black border-top border-light border-opacity-25">
       <ul className="nav pt-2 flex-row justify-content-around">
         {/* -- home -- */}
-        <li>
-          <Link to="" className="nav-link" aria-current="page">
+        <li className="home-nav">
+          <Link to="/home" className="nav-link" aria-current="page">
             <Icons type="home" class="bi pe-none me-2" />
           </Link>
         </li>

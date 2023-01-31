@@ -1,5 +1,5 @@
-import Icons from "../SVGs/Icons";
-import Image from "../images/Image";
+import Icons from "../../SVGs/Icons";
+import UserPageImage from "../images/UserPageImage";
 import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 
@@ -15,8 +15,8 @@ function UserPageTweetDisplay({ findUserInfo }) {
         className="bg-black d-flex flex-column py-3 px-3 border-bottom border-light border-opacity-25"
         aria-current="true"
       >
-        <div className="d-flex flex-row">
-          <Image />
+        <div className="user-img-sm d-flex flex-row">
+          <UserPageImage findUserInfo={findUserInfo} />
           <div className="d-flex w-100 pt-2 ps-2 justify-content-between">
             <div className="w-100">
               <h6 className="mb-0">

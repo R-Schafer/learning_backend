@@ -1,45 +1,9 @@
+import Image from "./images/Image";
 import { useContext } from "react";
 import { LoginContext } from "../App";
-import Image from "../images/Image";
-import { useNavigate } from "react-router-dom";
-import { auth, db } from "./firebase";
-import { signOut, deleteUser } from "firebase/auth";
-import { doc, deleteDoc } from "firebase/firestore";
 
 function MobileDropdown() {
-  const { currentUser, currentUserInfo, setCurrentUser, setCurrentUserInfo } =
-    useContext(LoginContext);
-  const navigate = useNavigate();
-
-  async function handleDelete() {
-    // delete from firestore
-    await deleteDoc(doc(db, "users", currentUser));
-    // delete from firebase auth
-    const user = auth.currentUser;
-    deleteUser(user)
-      .then(() => {
-        navigate("/");
-        setCurrentUser(null);
-        setCurrentUserInfo(null);
-      })
-      .catch((error) => {
-        const errorMessage = "could not delete user";
-        console.log(errorMessage);
-      });
-  }
-
-  function handleLogout() {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-        setCurrentUser(null);
-        setCurrentUserInfo(null);
-      })
-      .catch((error) => {
-        const errorMessage = "could not sign user out";
-        console.log(errorMessage);
-      });
-  }
+  const { currentUserInfo, logout, deleteAcct } = useContext(LoginContext);
 
   return (
     <div className="dropdown pb-2">
@@ -50,11 +14,11 @@ function MobileDropdown() {
       >
         <Image />
         <div className="dropdown-menu dropdown-menu-dark text-small shadow">
-          <button className="dropdown-item" onClick={handleDelete}>
+          <button className="dropdown-item" onClick={deleteAcct}>
             Delete @{currentUserInfo.handle}
           </button>
 
-          <button className="dropdown-item" onClick={handleLogout}>
+          <button className="dropdown-item" onClick={logout}>
             Log out @{currentUserInfo.handle}
           </button>
         </div>

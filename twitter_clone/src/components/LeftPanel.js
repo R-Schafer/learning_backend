@@ -2,7 +2,7 @@ import { useContext } from "react";
 import LeftNavbar from "./LeftNavbar";
 import LeftDropdown from "./LeftDropdown";
 import { LoginContext } from "../App";
-import UserPageLeftPanel from "./UserPageLeftPanel";
+import UserPageLeftPanel from "./userpage/UserPageLeftPanel";
 
 function LeftPanel() {
   const { currentUser } = useContext(LoginContext);

@@ -1,5 +1,5 @@
-import Icons from "../SVGs/Icons";
-import UserPageImage from "../images/UserPageImage";
+import Icons from "../../SVGs/Icons";
+import UserPageHeaderImage from "../images/UserPageHeaderImage";
 import UserPageBanner from "../images/UserPageBanner";
 
 function UserPageHeader({ findUserInfo }) {
@@ -17,10 +17,10 @@ function UserPageHeader({ findUserInfo }) {
         </span>
         <div className="d-flex flex-column">
           <div className="banner">
-            <UserPageBanner />
+            <UserPageBanner findUserInfo={findUserInfo} />
           </div>
-          <div className="user-img px-3">
-            <UserPageImage />
+          <div className="user-img-big px-3">
+            <UserPageHeaderImage findUserInfo={findUserInfo} />
           </div>
         </div>
         <div className="d-flex flex-column w-100 px-3 py-3 justify-content-between">

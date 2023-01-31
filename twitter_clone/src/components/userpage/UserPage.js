@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loading from "./Loading";
-import NotFound from "./NotFound";
-import LeftPanel from "./LeftPanel";
+import Loading from "../Loading";
+import NotFound from "../NotFound";
+import LeftPanel from "../LeftPanel";
 import UserPageCenterPanel from "./UserPageCenterPanel";
-import RightPanel from "./RightPanel";
+import RightPanel from "../RightPanel";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../firebase";
 
 function UserPage() {
   const [loading, setLoading] = useState(true);

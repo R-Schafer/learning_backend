@@ -1,4 +1,4 @@
-import Icons from "../SVGs/Icons";
+import Icons from "../../SVGs/Icons";
 import { Link } from "react-router-dom";
 
 function UserPageLeftPanel() {

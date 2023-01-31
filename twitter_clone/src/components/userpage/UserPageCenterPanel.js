@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { LoginContext } from "../App";
-import MobileDisplay from "./MobileDisplay";
+import { LoginContext } from "../../App";
+import MobileDisplay from "../MobileDisplay";
 import UserPageHeader from "./UserPageHeader";
 import UserPageTweetDisplay from "./UserPageTweetDisplay";
 

@@ -1,48 +1,9 @@
-import Image from "../images/Image";
-import { useNavigate } from "react-router-dom";
-import { auth, db } from "./firebase";
-import { signOut, deleteUser } from "firebase/auth";
-import { doc, deleteDoc } from "firebase/firestore";
+import Image from "./images/Image";
 import { useContext } from "react";
 import { LoginContext } from "../App";
 
 function LeftDropdown() {
-  const { currentUser, currentUserInfo, setCurrentUser, setCurrentUserInfo } =
-    useContext(LoginContext);
-  const navigate = useNavigate();
-
-  async function handleDelete() {
-    // delete from firestore
-    await deleteDoc(doc(db, "users", currentUser));
-    console.log("user deleted from firestore");
-    // delete from firebase auth
-    const user = auth.currentUser;
-    deleteUser(user)
-      .then(() => {
-        navigate("/");
-        setCurrentUser(null);
-        setCurrentUserInfo(null);
-        console.log("user deleted from firebase auth");
-      })
-      .catch((error) => {
-        const errorMessage = "could not delete user";
-        console.log(errorMessage);
-      });
-  }
-
-  function handleLogout() {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-        setCurrentUser(null);
-        setCurrentUserInfo(null);
-        console.log("sign out successful");
-      })
-      .catch((error) => {
-        const errorMessage = "could not sign user out";
-        console.log(errorMessage);
-      });
-  }
+  const { currentUserInfo, logout, deleteAcct } = useContext(LoginContext);
 
   return (
     <div className="dropdown ps-3">
@@ -61,11 +22,11 @@ function LeftDropdown() {
       </div>
 
       <div className="dropdown-menu dropdown-menu-dark text-small shadow">
-        <button className="dropdown-item" onClick={handleDelete}>
+        <button className="dropdown-item" onClick={deleteAcct}>
           Delete @{currentUserInfo.handle}
         </button>
 
-        <button className="dropdown-item" onClick={handleLogout}>
+        <button className="dropdown-item" onClick={logout}>
           Log out @{currentUserInfo.handle}
         </button>
       </div>
