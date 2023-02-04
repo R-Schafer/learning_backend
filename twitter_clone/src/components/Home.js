@@ -13,18 +13,16 @@ function Home() {
   }
 
   return (
-    <div className="pages w-100 h-100 d-flex bg-black">
-      <div className="pages-container w-100 d-flex">
-        <section className="d-sm-flex d-none flex-column h-100 flex-shrink-0 py-3 pe-3 border-end border-light border-opacity-25">
-          <LeftPanel />
-        </section>
-        <section className="center-section w-100">
-          <CenterPanel />
-        </section>
-        <section className="d-lg-flex d-none flex-column flex-shrink-0 p-3 border-start border-light border-opacity-25">
-          <RightPanel />
-        </section>
-      </div>
+    <div className="d-flex justify-content-center">
+      <section className="left-panel d-sm-flex d-none py-3 pe-3">
+        <LeftPanel />
+      </section>
+      <section className="center-section border border-top-0 border-bottom-0 border-light border-opacity-25">
+        <CenterPanel />
+      </section>
+      <section className="right-panel d-lg-flex d-none p-3 ">
+        <RightPanel />
+      </section>
     </div>
   );
 }

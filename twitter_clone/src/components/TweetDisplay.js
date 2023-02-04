@@ -15,7 +15,7 @@ function TweetDisplay() {
     return (
       <Link
         to=""
-        className="bg-black d-flex flex-column py-3 px-3 border-bottom border-light border-opacity-25"
+        className="bg-black d-flex flex-column flex-wrap py-3 px-3 border-bottom border-light border-opacity-25"
         aria-current="true"
       >
         <div className="d-flex flex-row">
@@ -55,7 +55,7 @@ function TweetDisplay() {
   });
 
   return (
-    <div>
+    <>
       <div className="pinned-tweet">
         <Link
           to="/user/Raineys_Clone"
@@ -102,7 +102,7 @@ function TweetDisplay() {
         </Link>
       </div>
       {displayTweets}
-    </div>
+    </>
   );
 }
 

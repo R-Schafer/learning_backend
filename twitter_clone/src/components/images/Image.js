@@ -6,7 +6,7 @@ function Image() {
   return (
     <img
       src={currentUserInfo.image}
-      alt="randomly generated faker pic"
+      alt="random pic"
       width="50"
       height="50"
       className="rounded-circle me-2 "

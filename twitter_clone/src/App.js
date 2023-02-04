@@ -11,7 +11,6 @@ import {
   signOut,
   deleteUser,
 } from "firebase/auth";
-import { faker } from "@faker-js/faker";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
@@ -23,6 +22,7 @@ export const LoginContext = createContext(null);
 function App() {
   const [currentUser, setCurrentUser] = useState();
   const [currentUserInfo, setCurrentUserInfo] = useState();
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -85,8 +85,8 @@ function App() {
     password
   ) {
     // fetching images
-    const imageResponse = await fetch(faker.image.people());
-    const bannerResponse = await fetch(faker.image.nature());
+    const imageResponse = await fetch("https://picsum.photos/640/480");
+    const bannerResponse = await fetch("https://picsum.photos/640/480");
 
     try {
       await setDoc(doc(db, "users", email), {
@@ -114,6 +114,7 @@ function App() {
       setCurrentUser(user.email);
       setCurrentUserInfo(userInfo);
     }
+    setLoading(false);
   }
 
   // get current user info from firestore
@@ -139,11 +140,12 @@ function App() {
   }
 
   return (
-    <div className="h-100 w-100">
+    <div className="w-100 d-flex flex-column">
       <LoginContext.Provider
         value={{
           currentUser,
           currentUserInfo,
+          loading,
           login,
           signup,
           logout,

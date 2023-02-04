@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import Icons from "../SVGs/Icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { LoginContext } from "../App";
+import Loading from "./Loading";
 
 function Login() {
-  const { login } = useContext(LoginContext);
+  const { login, currentUser, loading } = useContext(LoginContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +20,13 @@ function Login() {
     }
   }
 
-  return (
+  if (loading) {
+    return <Loading />;
+  }
+
+  return currentUser ? (
+    <Navigate to="/home" />
+  ) : (
     <div className="h-100 d-flex flex-column justify-content-center align-items-center">
       <div className="box bg-dark rounded-3 text-center p-3">
         <Icons type="logo" />
@@ -72,6 +79,13 @@ function Login() {
           Don't have an account?
           <Link to="/signup" className="ps-2">
             <span>Sign up</span>
+          </Link>
+        </p>
+        {/* ------------------ account demo ------------------ */}
+        <p className="signup-link text-light d-flex flex-column justify-content-center align-content-center">
+          Don't want to make an account?
+          <Link to="/user/Raineys_Clone">
+            <span>Go to demo</span>
           </Link>
         </p>
       </div>

@@ -3,23 +3,23 @@ function FollowPageImage({ handle }) {
 
   if (handle === "raineys_clone") {
     imgSrc =
-      "https://loremflickr.com/cache/resized/65535_52190227353_316ef748d0_z_640_480_nofilter.jpg";
+      "https://fastly.picsum.photos/id/684/640/480.jpg?hmac=mJVri0X13MUdoDVCAdJ-Xcpq5-yGcAtrW_rKtR1myMg";
   }
 
   if (handle === "npc4lyfe") {
     imgSrc =
-      "https://loremflickr.com/cache/resized/65535_52519595207_d523042a16_c_640_480_nofilter.jpg";
+      "https://fastly.picsum.photos/id/870/640/480.jpg?hmac=xE4MwAiwrqT-CKbcjlHy6mSKld8aoZC3wBUUaJnqXE8";
   }
 
   if (handle === "thisisafake") {
     imgSrc =
-      "https://loremflickr.com/cache/resized/65535_52066534019_3054e6bf1f_c_640_480_nofilter.jpg";
+      "https://fastly.picsum.photos/id/281/640/480.jpg?hmac=QFx0lJFET73U0tjlrWJXoJ6TVQ35Dn2hE8Vma61i8zk";
   }
 
   return (
     <img
       src={imgSrc}
-      alt="randomly generated faker pic"
+      alt="random pic"
       width="50"
       height="50"
       className="rounded-circle me-2"

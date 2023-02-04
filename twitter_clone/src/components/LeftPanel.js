@@ -7,17 +7,15 @@ import UserPageLeftPanel from "./userpage/UserPageLeftPanel";
 function LeftPanel() {
   const { currentUser } = useContext(LoginContext);
   return (
-    <div className="h-100">
-      <div className="h-100 d-flex flex-column justify-content-between">
-        {currentUser ? (
-          <>
-            <LeftNavbar />
-            <LeftDropdown />
-          </>
-        ) : (
-          <UserPageLeftPanel />
-        )}
-      </div>
+    <div className="d-flex flex-column justify-content-between">
+      {currentUser ? (
+        <>
+          <LeftNavbar />
+          <LeftDropdown />
+        </>
+      ) : (
+        <UserPageLeftPanel />
+      )}
     </div>
   );
 }

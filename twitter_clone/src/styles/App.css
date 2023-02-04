@@ -51,11 +51,17 @@ a:active {
   cursor: pointer;
 }
 
+.left-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
 /* --------------------- Center Panel --------------------- */
 /* - Tweet Box - */
 #user-message {
   resize: none;
-  height: 180px;
+  height: 165px;
   box-shadow: none;
 }
 
@@ -93,6 +99,12 @@ a:active {
 }
 
 /* --------------------- Right Panel --------------------- */
+.right-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
 /* - Search - */
 #search {
   box-shadow: none !important;
@@ -122,7 +134,6 @@ ul {
 
 .box {
   width: 300px;
-  /* max-width: 400px; */
 }
 .signup-link a {
   pointer-events: auto;
@@ -205,9 +216,5 @@ ul {
 @media only screen and (min-width: 992px) {
   .center-section {
     max-width: 600px;
-  }
-
-  .pages-container {
-    justify-content: center;
   }
 }
