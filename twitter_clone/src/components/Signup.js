@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import Icons from "../SVGs/Icons";
 import { LoginContext } from "../App";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 function Signup() {
-  const { signup } = useContext(LoginContext);
+  const { signup, loading } = useContext(LoginContext);
 
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -53,6 +54,10 @@ function Signup() {
         setExistingEmail(true);
       }
     }
+  }
+
+  if (loading) {
+    return <Loading />;
   }
 
   return (

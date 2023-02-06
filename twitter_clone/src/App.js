@@ -2,7 +2,17 @@ import "./styles/App.css";
 import { createContext, useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { db, auth } from "./components/firebase";
-import { doc, getDoc, updateDoc, setDoc, deleteDoc } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  updateDoc,
+  setDoc,
+  deleteDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import {
   setPersistence,
   browserLocalPersistence,
@@ -39,6 +49,7 @@ function App() {
 
   // signup
   async function signup(name, username, handle, email, password) {
+    setLoading(true);
     await createUserWithEmailAndPassword(auth, email, password);
     await addNewUserToFirestore(name, username, handle, email, password);
     await getUser();
@@ -119,10 +130,12 @@ function App() {
 
   // get current user info from firestore
   async function getUserInfo(currentUser) {
+    setLoading(true);
     const docRef = doc(db, "users", currentUser);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const data = docSnap.data();
+      setLoading(false);
       return data;
     } else {
       console.log("No docSnap");
@@ -139,6 +152,18 @@ function App() {
     await getUser();
   }
 
+  // go to a different user's page
+  async function getUserPageInfo(handle) {
+    setLoading(true);
+    const q = query(collection(db, "users"), where("handle", "==", handle));
+    const querySnapshot = await getDocs(q);
+    const doc = querySnapshot.docs[0];
+    if (doc) {
+      setLoading(false);
+      return doc.data();
+    }
+  }
+
   return (
     <div className="w-100 d-flex flex-column">
       <LoginContext.Provider
@@ -151,6 +176,7 @@ function App() {
           logout,
           deleteAcct,
           addTweet,
+          getUserPageInfo,
         }}
       >
         <Routes>

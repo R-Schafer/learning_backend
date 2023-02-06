@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../Loading";
 import NotFound from "../NotFound";
 import LeftPanel from "../LeftPanel";
 import UserPageCenterPanel from "./UserPageCenterPanel";
 import RightPanel from "../RightPanel";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
+import { LoginContext } from "../../App";
 
 function UserPage() {
-  const [loading, setLoading] = useState(true);
+  const { getUserPageInfo, loading } = useContext(LoginContext);
   const [findUserInfo, setFindUserInfo] = useState();
   const { handle } = useParams();
 
@@ -17,21 +16,14 @@ function UserPage() {
     findUser(handle);
   }, [handle]);
 
-  // finding user by url
+  // go to another user's page
   async function findUser(handle) {
-    const q = query(collection(db, "users"), where("handle", "==", handle));
-    const querySnapshot = await getDocs(q);
-    const doc = querySnapshot.docs[0];
-
-    // if user exists
-    if (doc) {
-      setFindUserInfo(doc.data());
-    }
-    setLoading(false);
+    const userPage = await getUserPageInfo(handle);
+    setFindUserInfo(userPage);
   }
 
   if (loading) {
-    return <Loading />;
+    return <Loading type={2} />;
   }
 
   if (!findUserInfo) {
