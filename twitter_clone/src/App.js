@@ -154,10 +154,17 @@ function App() {
 
   // go to a different user's page
   async function getUserPageInfo(handle) {
-    setLoading(true);
+    // adding a small delay to the loader
+    let doc;
+    setTimeout(() => {
+      if (!doc) {
+        setLoading(true);
+      }
+    }, 500);
+
     const q = query(collection(db, "users"), where("handle", "==", handle));
     const querySnapshot = await getDocs(q);
-    const doc = querySnapshot.docs[0];
+    doc = querySnapshot.docs[0];
     if (doc) {
       setLoading(false);
       return doc.data();

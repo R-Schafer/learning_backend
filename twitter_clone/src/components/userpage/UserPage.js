@@ -23,7 +23,7 @@ function UserPage() {
   }
 
   if (loading) {
-    return <Loading type={2} />;
+    return <Loading />;
   }
 
   if (!findUserInfo) {
