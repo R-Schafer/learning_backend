@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { LoginContext } from "../App";
 
 function MobileDropdown() {
-  const { currentUserInfo, logout, deleteAcct } = useContext(LoginContext);
+  const { currentUserInfo, logout, deleteAccount } = useContext(LoginContext);
 
   return (
     <div className="dropdown pb-2">
@@ -14,7 +14,7 @@ function MobileDropdown() {
       >
         <Image />
         <div className="dropdown-menu dropdown-menu-dark text-small shadow">
-          <button className="dropdown-item" onClick={deleteAcct}>
+          <button className="dropdown-item" onClick={deleteAccount}>
             Delete @{currentUserInfo.handle}
           </button>
 

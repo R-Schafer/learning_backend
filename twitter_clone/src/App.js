@@ -58,33 +58,29 @@ function App() {
 
   // logout
   async function logout() {
-    await signOut(auth)
-      .then(() => {
-        navigate("/");
-        setCurrentUser(null);
-        setCurrentUserInfo(null);
-      })
-      .catch((error) => {
-        const errorMessage = "could not sign user out";
-        console.log(errorMessage);
-      });
+    try {
+      await signOut(auth);
+      setCurrentUser(null);
+      setCurrentUserInfo(null);
+      navigate("/");
+    } catch {
+      console.log("could not sign user out");
+    }
   }
 
   // delete user's account
-  async function deleteAcct() {
-    await deleteDoc(doc(db, "users", currentUser));
-    // delete from firebase auth
-    const user = auth.currentUser;
-    await deleteUser(user)
-      .then(() => {
-        navigate("/");
-        setCurrentUser(null);
-        setCurrentUserInfo(null);
-      })
-      .catch((error) => {
-        const errorMessage = "could not delete user";
-        console.log(errorMessage);
-      });
+  async function deleteAccount() {
+    try {
+      await deleteDoc(doc(db, "users", currentUser));
+      // delete from firebase auth
+      const user = auth.currentUser;
+      await deleteUser(user);
+      setCurrentUser(null);
+      setCurrentUserInfo(null);
+      navigate("/");
+    } catch {
+      console.log("could not delete user");
+    }
   }
 
   // add user to firestore
@@ -174,7 +170,7 @@ function App() {
           login,
           signup,
           logout,
-          deleteAcct,
+          deleteAccount,
           addTweet,
           getUserPageInfo,
         }}

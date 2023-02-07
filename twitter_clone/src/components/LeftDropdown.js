@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { LoginContext } from "../App";
 
 function LeftDropdown() {
-  const { currentUserInfo, logout, deleteAcct } = useContext(LoginContext);
+  const { currentUserInfo, logout, deleteAccount } = useContext(LoginContext);
 
   return (
     <div className="dropdown ps-3">
@@ -22,7 +22,7 @@ function LeftDropdown() {
       </div>
 
       <div className="dropdown-menu dropdown-menu-dark text-small shadow">
-        <button className="dropdown-item" onClick={deleteAcct}>
+        <button className="dropdown-item" onClick={deleteAccount}>
           Delete @{currentUserInfo.handle}
         </button>
 
