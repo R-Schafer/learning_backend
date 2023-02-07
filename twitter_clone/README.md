@@ -2,7 +2,7 @@
 
 <div align="center">
   <h2>Developed responsive app that mimics Twitter. 
-    Allows user to create account, tweet, read other user's tweets, logout, and delete. </h2>
+    Allows user to create account, login, tweet, read other user's tweets, logout, and delete account. </h2>
   
   <h3>Features:</h3>
   • Authentication <br/>
@@ -35,5 +35,5 @@
 #
 
 <div align="center">
-  <img width="80%" alt="user page" src="https://user-images.githubusercontent.com/71032629/216131767-236e64b8-338c-40b2-a9de-2cee228add81.png">
+  <img width="80%" alt="user page" src="https://user-images.githubusercontent.com/71032629/217367403-c0bada42-2ad8-4cb6-a963-3a47a20158dc.png">
  </div>
