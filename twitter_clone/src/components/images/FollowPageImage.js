@@ -6,7 +6,7 @@ function FollowPageImage({ handle }) {
       "https://fastly.picsum.photos/id/684/640/480.jpg?hmac=mJVri0X13MUdoDVCAdJ-Xcpq5-yGcAtrW_rKtR1myMg";
   }
 
-  if (handle === "npc4lyfe") {
+  if (handle === "bot4lyfe") {
     imgSrc =
       "https://fastly.picsum.photos/id/870/640/480.jpg?hmac=xE4MwAiwrqT-CKbcjlHy6mSKld8aoZC3wBUUaJnqXE8";
   }

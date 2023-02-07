@@ -2,7 +2,7 @@ function UserPageImage({ findUserInfo }) {
   return (
     <img
       src={findUserInfo.image}
-      alt="randomly pic"
+      alt="random pic"
       width="50"
       height="50"
       className="rounded-circle me-2"

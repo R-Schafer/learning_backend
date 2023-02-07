@@ -27,17 +27,17 @@ function Follow() {
             </li>
 
             <li className="pb-2 ps-3 pt-2">
-              <Link className="d-flex flex-row" to="/user/npc4lyfe">
-                <FollowPageImage handle={"npc4lyfe"} />
+              <Link className="d-flex flex-row" to="/user/bot4lyfe">
+                <FollowPageImage handle={"bot4lyfe"} />
                 <div className="d-flex flex-column w-100 py-2 justify-content-between">
                   <h6 className="mb-0 d-flex flex-row">
-                    <strong>I'm a NPC</strong>
+                    <strong>I'm a bot</strong>
                     <div className="ps-1">
                       <Icons type="verify" />
                     </div>
                   </h6>
                   <span className="opacity-50">
-                    <small>@npc4lyfe</small>
+                    <small>@bot4lyfe</small>
                   </span>
                 </div>
               </Link>
