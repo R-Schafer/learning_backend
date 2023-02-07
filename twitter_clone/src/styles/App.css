@@ -1,0 +1,221 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* --------------------- HOME --------------------- */
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.bi-twitter {
+  fill: #1c9aef;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: white;
+  text-decoration: none;
+  pointer-events: none;
+  vertical-align: -0.125em;
+}
+
+/* --------------------- Left Panel --------------------- */
+
+.home-nav a:hover {
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+}
+
+.home-nav a:link,
+.home-nav a:visited,
+.home-nav a:active {
+  pointer-events: all;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+.left-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+/* --------------------- Center Panel --------------------- */
+/* - Tweet Box - */
+#user-message {
+  resize: none;
+  height: 165px;
+  box-shadow: none;
+}
+
+/* Tweet Button */
+.btn-color-1 {
+  color: #fff;
+  background-color: #1c9aef;
+  border-color: #1c9aef;
+  font-weight: bold;
+}
+
+.btn-color-1:hover,
+.btn-color-1:active,
+.btn-color-1:focus,
+.btn-color-1.active {
+  background: #1376b8;
+  color: #fff;
+  border-color: #1376b8;
+}
+
+.mobile-logo {
+  color: #1c9aef;
+}
+
+.pinned-tweet a:hover {
+  color: white;
+  background-color: #1c9aef;
+  cursor: pointer;
+}
+
+.pinned-tweet a:link,
+.pinned-tweet a:visited,
+.pinned-tweet a:active {
+  pointer-events: all;
+}
+
+/* --------------------- Right Panel --------------------- */
+.right-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-width: 250px;
+}
+
+/* - Search - */
+#search {
+  box-shadow: none !important;
+  border: none;
+  pointer-events: none;
+}
+
+/* - Happening - */
+ul {
+  list-style-type: none;
+}
+
+.show-more {
+  color: #1c9aef;
+}
+
+.follow a {
+  pointer-events: auto;
+}
+
+.follow li:hover {
+  cursor: pointer;
+  background-color: #111111;
+}
+
+/* --------------------- LOGIN --------------------- */
+
+.box {
+  width: 300px;
+}
+.signup-link a {
+  pointer-events: auto;
+  outline: none;
+  color: #1c9aef;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  border: 1px solid #1c9aef;
+  color: #1c9aef;
+}
+
+.login-btn:hover {
+  background-color: #1c9aef;
+  color: white;
+  border: 1px solid #1c9aef;
+}
+
+/* --------------------- REGISTER --------------------- */
+
+.signup-btn {
+  border: 1px solid #1c9aef;
+  color: #1c9aef;
+}
+
+.signup-btn:hover {
+  background-color: #1c9aef;
+  color: white;
+  border: 1px solid #1c9aef;
+}
+
+.login-link a {
+  pointer-events: auto;
+  outline: none;
+  color: #1c9aef;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------- USER PAGE  --------------------- */
+
+.banner {
+  height: 200px;
+  margin-bottom: -80px;
+  object-fit: cover;
+  background-color: #434343;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-userpage-login button {
+  color: #1c9aef;
+  border: 1px solid #1c9aef;
+  background-color: transparent;
+}
+
+.mobile-userpage-login button:hover {
+  color: white;
+  background-color: #1c9aef;
+  cursor: pointer;
+}
+
+.mobile-userpage-login a:link,
+.mobile-userpage-login a:visited,
+.mobile-userpage-login a:active {
+  pointer-events: all;
+}
+
+/* --------------------- MEDIA QUERY  --------------------- */
+
+@media only screen and (min-width: 992px) {
+  .center-section {
+    max-width: 600px;
+  }
+}
