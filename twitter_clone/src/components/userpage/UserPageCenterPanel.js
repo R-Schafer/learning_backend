@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { LoginContext } from "../../App";
 import MobileDisplay from "../MobileDisplay";
+import TweetDisplay from "../TweetDisplay";
 import UserPageHeader from "./UserPageHeader";
-import UserPageTweetDisplay from "./UserPageTweetDisplay";
 
 function UserPageCenterPanel({ findUserInfo }) {
   const { currentUser } = useContext(LoginContext);
@@ -12,7 +12,7 @@ function UserPageCenterPanel({ findUserInfo }) {
     <div className="d-flex flex-column justify-content-between">
       <div>
         <UserPageHeader findUserInfo={findUserInfo} />
-        <UserPageTweetDisplay findUserInfo={findUserInfo} />
+        <TweetDisplay pinned={false} userInfo={findUserInfo} />
       </div>
       {currentUser ? (
         <div className="sticky-bottom d-sm-none">
