@@ -58,7 +58,7 @@ function TweetDisplay() {
     <>
       <div className="pinned-tweet">
         <Link
-          to="/user/Raineys_Clone"
+          to="/user/raineys_clone"
           className="bg-black d-flex flex-column py-3 px-3 border-bottom border-light border-opacity-25"
           aria-current="true"
         >
@@ -78,7 +78,7 @@ function TweetDisplay() {
                   </span>
                   <Icons type="verify" />
                   <span className="opacity-50 ps-2">
-                    @Raineys_Clone · Dec 15
+                    @raineys_clone · Dec 15
                   </span>
                 </h6>
                 <p className="fs-6 mb-0 pt-2">

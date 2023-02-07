@@ -8,7 +8,7 @@ import RightPanel from "../RightPanel";
 import { LoginContext } from "../../App";
 
 function UserPage() {
-  const { getUserPageInfo, loading } = useContext(LoginContext);
+  const { getUserPageInfo } = useContext(LoginContext);
   const [findUserInfo, setFindUserInfo] = useState();
   const { handle } = useParams();
 
@@ -22,11 +22,11 @@ function UserPage() {
     setFindUserInfo(userPage);
   }
 
-  if (loading) {
+  if (findUserInfo === undefined) {
     return <Loading />;
   }
 
-  if (!findUserInfo) {
+  if (findUserInfo === null) {
     return <NotFound />;
   }
 

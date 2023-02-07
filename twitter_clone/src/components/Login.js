@@ -84,7 +84,7 @@ function Login() {
         {/* ------------------ account demo ------------------ */}
         <p className="signup-link text-light d-flex flex-column justify-content-center align-content-center">
           Don't want to make an account?
-          <Link to="/user/Raineys_Clone">
+          <Link to="/user/raineys_clone">
             <span>Go to demo</span>
           </Link>
         </p>

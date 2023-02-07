@@ -10,7 +10,7 @@ function Follow() {
         <div className="d-flex flex-column gap-2 w-100 pt-2 justify-content-between">
           <ul className="follow p-0 m-0 w-100">
             <li className="pb-2 ps-3 pt-2">
-              <Link className="d-flex flex-row" to="/user/Raineys_Clone">
+              <Link className="d-flex flex-row" to="/user/raineys_clone">
                 <FollowPageImage handle={"raineys_clone"} />
                 <div className="d-flex flex-column w-100 py-2 justify-content-between">
                   <h6 className="mb-0 d-flex flex-row">
@@ -20,7 +20,7 @@ function Follow() {
                     </div>
                   </h6>
                   <span className="opacity-50">
-                    <small>@Raineys_Clone</small>
+                    <small>@raineys_clone</small>
                   </span>
                 </div>
               </Link>
