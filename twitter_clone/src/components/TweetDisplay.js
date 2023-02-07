@@ -18,7 +18,7 @@ function TweetDisplay() {
         className="bg-black d-flex flex-column flex-wrap py-3 px-3 border-bottom border-light border-opacity-25"
       >
         <div className="d-flex flex-row">
-          <Image />
+          <Image userInfo={currentUserInfo} />
           <div className="d-flex w-100 pt-2 ps-2 justify-content-between">
             <div className="w-100">
               <h6 className="mb-0">

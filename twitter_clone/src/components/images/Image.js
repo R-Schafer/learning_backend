@@ -1,11 +1,7 @@
-import { useContext } from "react";
-import { LoginContext } from "../../App";
-
-function Image() {
-  const { currentUserInfo } = useContext(LoginContext);
+function Image({ userInfo }) {
   return (
     <img
-      src={currentUserInfo.image}
+      src={userInfo.image}
       alt="random pic"
       width="50"
       height="50"

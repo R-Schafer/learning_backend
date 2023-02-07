@@ -11,7 +11,7 @@ function MobileDropdown() {
         className="d-flex align-items-center text-white text-decoration-none"
         data-bs-toggle="dropdown"
       >
-        <Image />
+        <Image userInfo={currentUserInfo} />
         <div className="dropdown-menu dropdown-menu-dark text-small shadow">
           <button className="dropdown-item" onClick={deleteAccount}>
             Delete @{currentUserInfo.handle}

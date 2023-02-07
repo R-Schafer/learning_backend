@@ -12,7 +12,7 @@ function LeftDropdown() {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        <Image />
+        <Image userInfo={currentUserInfo} />
         <h6 className="mb-0 d-none d-lg-flex flex-column">
           <strong>{currentUserInfo.username}</strong>
           <span className="opacity-50">

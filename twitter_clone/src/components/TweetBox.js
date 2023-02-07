@@ -4,7 +4,7 @@ import Icons from "../SVGs/Icons";
 import Image from "./images/Image";
 
 function TweetBox() {
-  const { addTweet } = useContext(LoginContext);
+  const { currentUserInfo, addTweet } = useContext(LoginContext);
   const [tweet, setTweet] = useState();
 
   async function checkTweet() {
@@ -28,7 +28,7 @@ function TweetBox() {
         <Icons type="stars" />
       </span>
       <div className="d-flex flex-row">
-        <Image />
+        <Image userInfo={currentUserInfo} />
         <div className="w-100 form-group d-flex align-items-end flex-column">
           <textarea
             name="message"
