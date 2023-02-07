@@ -8,13 +8,13 @@ function MobileDisplay() {
       <ul className="nav pt-2 flex-row justify-content-around">
         {/* -- home -- */}
         <li className="home-nav">
-          <Link to="/home" className="nav-link" aria-current="page">
+          <Link to="/home" className="nav-link">
             <Icons type="home" class="bi pe-none me-2" />
           </Link>
         </li>
         {/* -- search -- */}
         <li>
-          <Link to="" className="nav-link" aria-current="page">
+          <Link to="" className="nav-link">
             <Icons type="search" class="bi pe-none me-2" />
           </Link>
         </li>
@@ -22,13 +22,13 @@ function MobileDisplay() {
         <MobileDropdown />
         {/* -- notifications -- */}
         <li>
-          <Link to="" className="nav-link" aria-current="page">
+          <Link to="" className="nav-link">
             <Icons type="notifications" class="bi pe-none me-2" />
           </Link>
         </li>
         {/* -- messages -- */}
         <li>
-          <Link to="" className="nav-link" aria-current="page">
+          <Link to="" className="nav-link">
             <Icons type="messages" class="bi pe-none me-2" />
           </Link>
         </li>
