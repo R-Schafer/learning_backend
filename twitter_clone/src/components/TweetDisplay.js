@@ -16,7 +16,6 @@ function TweetDisplay() {
       <Link
         to=""
         className="bg-black d-flex flex-column flex-wrap py-3 px-3 border-bottom border-light border-opacity-25"
-        aria-current="true"
       >
         <div className="d-flex flex-row">
           <Image />
@@ -60,7 +59,6 @@ function TweetDisplay() {
         <Link
           to="/user/raineys_clone"
           className="bg-black d-flex flex-column py-3 px-3 border-bottom border-light border-opacity-25"
-          aria-current="true"
         >
           <div className="opacity-50 ms-5">
             <Icons type="pin" />

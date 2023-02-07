@@ -10,7 +10,6 @@ function MobileDropdown() {
       <div
         className="d-flex align-items-center text-white text-decoration-none"
         data-bs-toggle="dropdown"
-        aria-expanded="false"
       >
         <Image />
         <div className="dropdown-menu dropdown-menu-dark text-small shadow">

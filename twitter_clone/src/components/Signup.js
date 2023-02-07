@@ -73,8 +73,6 @@ function Signup() {
               name="name"
               className="form-control bg-dark text-light"
               placeholder="Name"
-              aria-label="Name"
-              aria-describedby="basic-addon1"
               required
               onChange={(e) => setName(e.target.value)}
             />
@@ -87,8 +85,6 @@ function Signup() {
               name="username"
               className="form-control bg-dark text-light"
               placeholder="Username"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
@@ -102,8 +98,6 @@ function Signup() {
               name="handle"
               className="form-control bg-dark text-light"
               placeholder="Handle"
-              aria-label="Handle"
-              aria-describedby="basic-addon1"
               onChange={(e) => setHandle(e.target.value)}
             />
           </div>
@@ -119,8 +113,6 @@ function Signup() {
               name="email"
               className="form-control bg-dark text-light"
               placeholder="Email"
-              aria-label="Email"
-              aria-describedby="basic-addon1"
               required
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -138,8 +130,6 @@ function Signup() {
               name="password"
               className="form-control bg-dark text-light"
               placeholder="Password"
-              aria-label="Password"
-              aria-describedby="basic-addon1"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

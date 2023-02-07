@@ -39,8 +39,6 @@ function Login() {
               name="email"
               className="form-control bg-dark text-light"
               placeholder="Email"
-              aria-label="Email"
-              aria-describedby="basic-addon1"
               required
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -52,8 +50,6 @@ function Login() {
               name="password"
               className="form-control bg-dark text-light"
               placeholder="Password"
-              aria-label="Password"
-              aria-describedby="basic-addon1"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
