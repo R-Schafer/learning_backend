@@ -19,7 +19,7 @@ function TweetBox() {
   }
 
   return (
-    <div className="sticky-top text-white bg-black d-flex flex-column px-3 py-3 border-bottom border-light border-opacity-25">
+    <div className="text-white bg-black d-flex flex-column px-3 py-3 border-bottom border-light border-opacity-25">
       <span className="d-flex flex-row justify-content-between pb-2">
         <h4 className="d-sm-flex d-none">Home</h4>
         <div className="mobile-logo d-sm-none d-flex justify-content-center flex-grow-1">
