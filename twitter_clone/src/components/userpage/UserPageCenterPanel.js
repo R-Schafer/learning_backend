@@ -9,11 +9,11 @@ function UserPageCenterPanel({ findUserInfo }) {
   const { currentUser } = useContext(LoginContext);
 
   return (
-    <div className="d-flex flex-column justify-content-between">
-      <div>
+    <>
+      <>
         <UserPageHeader findUserInfo={findUserInfo} />
         <TweetDisplay pinned={false} userInfo={findUserInfo} />
-      </div>
+      </>
       {currentUser ? (
         <div className="sticky-bottom d-sm-none">
           <MobileDisplay />
@@ -30,7 +30,7 @@ function UserPageCenterPanel({ findUserInfo }) {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 }
 
