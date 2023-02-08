@@ -10,7 +10,7 @@ function CenterPanel() {
     <>
       <TweetBox />
       <TweetDisplay pinned={true} userInfo={currentUserInfo} />
-      <div className="sticky-bottom d-sm-none">
+      <div className="d-sm-none">
         <MobileDisplay />
       </div>
     </>

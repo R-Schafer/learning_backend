@@ -35,7 +35,7 @@ function UserPage() {
       <section className="left-panel d-sm-flex d-none py-3 pe-3">
         <LeftPanel />
       </section>
-      <section className="center-section w-100 border border-top-0 border-bottom-0 border-light border-opacity-25">
+      <section className="center-section border border-top-0 border-light border-opacity-25">
         <UserPageCenterPanel findUserInfo={findUserInfo} />
       </section>
       <section className="right-panel d-lg-flex d-none p-3">

@@ -98,6 +98,12 @@ a:active {
   pointer-events: all;
 }
 
+.mobile-display {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 /* --------------------- Right Panel --------------------- */
 .right-panel {
   position: sticky;
@@ -217,5 +223,8 @@ ul {
 @media only screen and (min-width: 992px) {
   .center-section {
     max-width: 600px;
+  }
+  .mobile-display {
+    max-width: 598px;
   }
 }

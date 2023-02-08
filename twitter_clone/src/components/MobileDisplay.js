@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function MobileDisplay() {
   return (
-    <div className="w-100 bg-black border-top border-light border-opacity-25">
+    <div className="mobile-display border-top border-light border-opacity-25">
       <ul className="nav pt-2 flex-row justify-content-around">
         {/* -- home -- */}
         <li className="home-nav">
