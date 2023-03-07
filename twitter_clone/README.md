@@ -2,7 +2,7 @@
 
 <div align="center">
   <h2>Developed responsive app that mimics Twitter. 
-    Allows user to create account, login, tweet, read other user's tweets, logout, and delete account. </h2>
+    Allows user to create account, login, tweet, read tweets from demo accounts, logout, and delete account. </h2>
   
   <h3>Features:</h3>
   • Authentication <br/>
